@@ -1,0 +1,29 @@
+version: "2"
+
+services:
+  mongoconnection:
+    environment:
+      - SECRET=admin
+    build:
+      context: ./mongoConnection
+      dockerfile: Dockerfile
+    container_name: mongoConnection
+    ports:
+      - 80:8080
+    links:
+      - db
+  db:
+    image: mongo:latest
+    container_name: db
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - 27017:27017
+    command: mongod
+volumes:
+  mongodb:
+  mongodb_config:
