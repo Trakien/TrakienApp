@@ -10,7 +10,7 @@ spring:
       password: admin
       database: products
       port: 27017
-      host: localhost
+      host: db
 logging:
   level:
     org:

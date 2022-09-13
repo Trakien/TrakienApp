@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v2/products")
-public class CustomerController {
+public class ProductsController {
 
     @GetMapping
     public ResponseEntity<List<String>> getAll() {
-        ArrayList<String> customers = new ArrayList<>();
-        customers.add("Hello");
-        customers.add("World");
-        return ResponseEntity.ok(customers);
+        ArrayList<String> products = new ArrayList<>();
+        products.add("Hello");
+        products.add("World");
+        return ResponseEntity.ok(products);
     }
 
 }
