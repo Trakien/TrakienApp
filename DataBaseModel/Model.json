@@ -1,0 +1,35 @@
+{
+	"update-date": ["12/9/2022","13/9/2022","14/9/2022"],
+	"marcas":{
+		"samsung": {
+			"100001223": {
+				"nombre": "galaxy bubbles pala",
+                "Tiendas":{
+                    "Ktronix":{
+                        "url": "https://www.ktronix.com",
+                        "precios":[2342,234,234]
+                    },
+                    "alkosto":{
+                        "url": "https://www.alkosto.com",
+                        "precios":[2342,234,234]
+                    }
+                }
+				
+			},
+            "100001225": {
+				"nombre": "galaxy smothie pala",
+                "Tiendas":{
+                    "Ktronix":{
+                        "url": "https://www.ktronix.com",
+                        "precios":[2342,234,234]
+                    },
+                    "alkosto":{
+                        "url": "https://www.alkosto.com",
+                        "precios":[2342,234,234]
+                    }
+                }
+				
+			}
+		}
+	} 
+}

@@ -14,7 +14,7 @@ services:
       - db
   webscraper:
     environment:
-      - FLASK_APP=WebScraping.py
+      - FLASK_APP=WebScrapingKKK.py
     build:
       context: ./webScraper
       dockerfile: Dockerfile

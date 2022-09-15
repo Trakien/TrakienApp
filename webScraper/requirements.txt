@@ -1,4 +1,3 @@
 requests
-threading
 flask
 flask_restful

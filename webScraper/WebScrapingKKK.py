@@ -50,7 +50,6 @@ class WebScraping(Resource):
             threads.append(t)
         [t.start() for t in threads]
         [t.join() for t in threads]
-        print(len(res))
         return res
 
 
