@@ -10,10 +10,10 @@ public class ConnectionScraper {
 
     private static final String GET_URL = "http://webscraper:5000/api/v2/scraping";
 
-    public static HttpResponse<String> getApi() throws IOException, InterruptedException {
+    public static HttpResponse<String> getApi(String url) throws IOException, InterruptedException {
         String json = new StringBuilder()
                 .append("{")
-                .append("\"url\":\"https://www.ktronix.com/celulares/telefonos-celulares/c/BI_101_KTRON\"")
+                .append("\"url\":\"" + url + "\"")
                 .append("}").toString();
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
