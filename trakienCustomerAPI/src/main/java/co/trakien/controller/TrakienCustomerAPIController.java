@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import co.trakien.dto.CustomerDto;
 import co.trakien.entity.Customer;
 import co.trakien.service.CustomerService;
+import co.trakien.util.RoleEnum;
 
 @RestController
 @RequestMapping("/api/v2/customers")
@@ -33,9 +34,12 @@ public class TrakienCustomerAPIController {
 
     @PostMapping
     public ResponseEntity<CustomerDto> create(@RequestBody CustomerDto customer) {
-        if (customer != null)
-            return ResponseEntity.ok(customerService.create(customer.toCustomer()).toCustomerDTO());
-        else
+        if (customer != null) {
+            Customer account = customer.toCustomer();
+            account.addRol(RoleEnum.ADMIN);
+            return ResponseEntity
+                    .ok(customerService.create(account).toCustomerDTO());
+        } else
             return ResponseEntity.badRequest().body(null);
     }
 

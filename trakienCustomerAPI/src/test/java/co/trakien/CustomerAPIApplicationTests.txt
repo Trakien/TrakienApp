@@ -1,13 +1,31 @@
 package co.trakien;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import co.trakien.controller.auth.AuthController;
+import co.trakien.dto.LoginDto;
+import co.trakien.dto.TokenDto;
 
 @SpringBootTest
 class TrakienCustomerAPIApplicationTests {
 
+	@Autowired
+	private AuthController authController;
+
 	@Test
 	void contextLoads() {
+		assertTrue(true);
+	}
+
+	@Test
+	void getToken() {
+		TokenDto token;
+		token = authController.login(new LoginDto("kali@admin.com", "kali"));
+		assertTrue(token != null);
 	}
 
 }
