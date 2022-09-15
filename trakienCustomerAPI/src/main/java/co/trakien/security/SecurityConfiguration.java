@@ -22,6 +22,12 @@ public class SecurityConfiguration
         this.jwtRequestFilter = jwtRequestFilter;
     }
 
+    /**
+     * This method configures the security
+     * 
+     * @param http
+     * @throws Exception
+     */
     @Override
     protected void configure(HttpSecurity http)
             throws Exception {

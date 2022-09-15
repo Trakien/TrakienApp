@@ -16,26 +16,43 @@ public class CustomerServiceMongoDB implements CustomerService {
 
     private final CustomerRepository customerRepository;
 
+    /**
+     * Constructor
+     * 
+     * @param customerRepository
+     */
     public CustomerServiceMongoDB(@Autowired CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 
+    /**
+     * Create a new customer
+     */
     @Override
     public Customer create(Customer customer) {
         customer.addRol(RoleEnum.ADMIN);
         return customerRepository.insert(customer);
     }
 
+    /**
+     * Get a customer by id
+     */
     @Override
     public Customer findById(String id) {
         return customerRepository.findById(id).get();
     }
 
+    /**
+     * Get all customers
+     */
     @Override
     public List<Customer> getAll() {
         return customerRepository.findAll();
     }
 
+    /**
+     * Delete a customer by id
+     */
     @Override
     public boolean deleteById(String id) {
         boolean flag = customerRepository.findById(id).isPresent();
@@ -46,11 +63,17 @@ public class CustomerServiceMongoDB implements CustomerService {
 
     }
 
+    /**
+     * Update a customer
+     */
     @Override
     public Customer update(Customer customer, String customerId) {
         return customerRepository.save(customer);
     }
 
+    /**
+     * Get a customer by email
+     */
     @Override
     public Optional<Customer> findByEmail(String email) {
         return customerRepository.findByEmail(email);

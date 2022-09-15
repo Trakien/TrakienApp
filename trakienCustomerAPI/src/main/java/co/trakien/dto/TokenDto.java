@@ -8,6 +8,12 @@ public class TokenDto {
 
     private Date expirationDate;
 
+    /**
+     * This method creates a TokenDto
+     * 
+     * @param token
+     * @param expirationDate
+     */
     public TokenDto(String token, Date expirationDate) {
         this.token = token;
         this.expirationDate = expirationDate;
