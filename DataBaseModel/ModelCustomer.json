@@ -1,0 +1,81 @@
+[{
+  "id": 1,
+  "name": "Jonis",
+  "passwordHash": "7UNi6GV",
+  "roles": "USER",
+  "email": "jdegiorgi0@networksolutions.com",
+  "lastName": "De Giorgi",
+  "createdAt": "18/08/2022"
+}, {
+  "id": 2,
+  "name": "Packston",
+  "passwordHash": "dCnWV1954b",
+  "roles": "ADMIN",
+  "email": "pshoard1@webnode.com",
+  "lastName": "Shoard",
+  "createdAt": "04/09/2022"
+}, {
+  "id": 3,
+  "name": "Sheppard",
+  "passwordHash": "MKFONn2ik",
+  "roles": "USER",
+  "email": "sbronger2@dyndns.org",
+  "lastName": "Bronger",
+  "createdAt": "16/08/2022"
+}, {
+  "id": 4,
+  "name": "Mendie",
+  "passwordHash": "7GLb2eRsl3N",
+  "roles": "ADMIN",
+  "email": "myoule3@51.la",
+  "lastName": "Youle",
+  "createdAt": "23/08/2022"
+}, {
+  "id": 5,
+  "name": "Janeta",
+  "passwordHash": "0IDLCoXBKU8D",
+  "roles": "USER",
+  "email": "jivy4@chronoengine.com",
+  "lastName": "Ivy",
+  "createdAt": "20/08/2022"
+}, {
+  "id": 6,
+  "name": "Janaya",
+  "passwordHash": "Iz7V7TeSt",
+  "roles": "USER",
+  "email": "jpedracci5@de.vu",
+  "lastName": "Pedracci",
+  "createdAt": "27/08/2022"
+}, {
+  "id": 7,
+  "name": "Carroll",
+  "passwordHash": "nZ1eicM",
+  "roles": "USER",
+  "email": "cpentecost6@nyu.edu",
+  "lastName": "Pentecost",
+  "createdAt": "28/08/2022"
+}, {
+  "id": 8,
+  "name": "Tremain",
+  "passwordHash": "52i1Mz",
+  "roles": "USER",
+  "email": "tgantley7@addthis.com",
+  "lastName": "Gantley",
+  "createdAt": "03/09/2022"
+}, {
+  "id": 9,
+  "name": "Pauly",
+  "passwordHash": "RrBkO2sbHRGz",
+  "roles": "ADMIN",
+  "email": "pyounger8@deviantart.com",
+  "lastName": "Younger",
+  "createdAt": "02/09/2022"
+}, {
+  "id": 10,
+  "name": "Valeria",
+  "passwordHash": "wgMTtw",
+  "roles": "ADMIN",
+  "email": "vwylam9@indiatimes.com",
+  "lastName": "Wylam",
+  "createdAt": "21/08/2022"
+}]
