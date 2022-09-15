@@ -12,9 +12,22 @@ services:
       - 80:8080
     links:
       - db
+  apiupdater:
+    environment:
+      - SECRET=admin
+    build:
+      context: ./apiUpdater
+      dockerfile: Dockerfile
+    container_name: apiUpdater
+    ports:
+      - 4999:8080
+    links:
+      - db
+      - webscraper
   webscraper:
     environment:
       - FLASK_APP=WebScrapingKKK.py
+      - FLASK_DEBUG=1
     build:
       context: ./webScraper
       dockerfile: Dockerfile

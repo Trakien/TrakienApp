@@ -33,11 +33,12 @@ def thread(url, notFirst, indice, page=""):
 
 class WebScraping(Resource):
 
-    def get(self):
+    def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('url', required=True)
         args = parser.parse_args()
         url = args['url']
+        print(url)
         page = get_page(url+"?page=1&pageSize=25&sort=relevance")
         global res
         res = list()
