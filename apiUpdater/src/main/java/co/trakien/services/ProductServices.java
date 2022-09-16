@@ -20,4 +20,6 @@ public interface ProductServices {
 
     boolean deleteAll();
 
+    boolean deleteById(String id);
+
 }

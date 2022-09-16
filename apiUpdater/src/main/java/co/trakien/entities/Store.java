@@ -2,6 +2,8 @@ package co.trakien.entities;
 
 import java.util.List;
 
+import co.trakien.dto.StoreDto;
+
 public class Store {
 
     private String name;
@@ -54,6 +56,10 @@ public class Store {
     @Override
     public boolean equals(Object store) {
         return ((Store) store).getName().equals(this.name);
+    }
+
+    public StoreDto toStoreDto() {
+        return new StoreDto(name, url, prices.toString());
     }
 
 }

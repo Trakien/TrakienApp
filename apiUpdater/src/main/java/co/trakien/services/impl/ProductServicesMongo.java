@@ -82,4 +82,14 @@ public class ProductServicesMongo implements ProductServices {
         return getAll().isEmpty();
     }
 
+    @Override
+    public boolean deleteById(String id) {
+        boolean flag = productRepository.findById(id).isPresent();
+        if (flag) {
+            productRepository.deleteById(id);
+        }
+        flag = productRepository.findById(id).isEmpty();
+        return flag;
+    }
+
 }

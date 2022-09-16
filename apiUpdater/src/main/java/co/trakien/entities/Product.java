@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.data.annotation.Id;
 
+import co.trakien.dto.ProductDto;
+
 public class Product {
 
     @Id
@@ -94,6 +96,10 @@ public class Product {
             }
         }
         return false;
+    }
+
+    public ProductDto toProductDto() {
+        return new ProductDto(id, ref, name, category, updateDates.toString(), stores.toString());
     }
 
 }
