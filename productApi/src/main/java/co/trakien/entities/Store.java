@@ -58,4 +58,8 @@ public class Store {
         return ((Store) store).getName().equals(this.name);
     }
 
+    public StoreDto toStoreDto() {
+        return new StoreDto(name, url, prices.toString());
+    }
+
 }

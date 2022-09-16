@@ -24,6 +24,17 @@ services:
     links:
       - db
       - webscraper
+  productapi:
+    environment:
+      - SECRET=admin
+    build:
+      context: ./productApi
+      dockerfile: Dockerfile
+    container_name: productApi
+    ports:
+      - 4599:8080
+    links:
+      - db
   webscraper:
     environment:
       - FLASK_APP=WebScrapingKKK.py
