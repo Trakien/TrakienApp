@@ -45,5 +45,6 @@ public class SecurityConfiguration
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
     }
 }
