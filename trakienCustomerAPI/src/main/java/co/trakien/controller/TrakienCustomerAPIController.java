@@ -20,6 +20,12 @@ public class TrakienCustomerAPIController {
     @Autowired
     private CustomerService customerService;
 
+    /**
+     * This method brings all customers
+     * 
+     * @param customerDto
+     * @return ResponseEntity<List<Customer>>
+     */
     @GetMapping
     public ResponseEntity<List<CustomerDto>> getAll() {
         ArrayList<CustomerDto> customers = new ArrayList<>();
@@ -27,6 +33,12 @@ public class TrakienCustomerAPIController {
         return ResponseEntity.ok(customers);
     }
 
+    /**
+     * This method brings a customer by id
+     * 
+     * @param id
+     * @return ResponseEntity<Customer>
+     */
     @GetMapping("/{id}")
     public ResponseEntity<CustomerDto> findById(@PathVariable String id) {
         Customer customer = customerService.findById(id);
@@ -34,6 +46,12 @@ public class TrakienCustomerAPIController {
                 .ok((customer != null) ? customer.toCustomerDTO() : null);
     }
 
+    /**
+     * This method Creates a customer
+     * 
+     * @param customer
+     * @return ResponseEntity<Customer>
+     */
     @PostMapping
     public ResponseEntity<CustomerDto> create(@RequestBody CustomerDto customer) {
         if (customer != null) {
@@ -45,8 +63,14 @@ public class TrakienCustomerAPIController {
             return ResponseEntity.badRequest().body(null);
     }
 
-    @RolesAllowed("ADMIN")
+    /**
+     * This method Creates a customer with admin role
+     * 
+     * @param customer
+     * @return ResponseEntity<CustomerDto>
+     */
     @PostMapping
+    @RolesAllowed("ADMIN")
     public ResponseEntity<CustomerDto> createAdmin(@RequestBody CustomerDto customer) {
         if (customer != null) {
             Customer account = customer.toCustomer();
@@ -57,6 +81,12 @@ public class TrakienCustomerAPIController {
             return ResponseEntity.badRequest().body(null);
     }
 
+    /**
+     * This method Updates a customer
+     * 
+     * @param customer
+     * @return ResponseEntity<Customer>
+     */
     @PutMapping("/{id}")
     public ResponseEntity<CustomerDto> update(@RequestBody CustomerDto customer, @PathVariable String id) {
         if (customer != null)
@@ -65,8 +95,14 @@ public class TrakienCustomerAPIController {
             return ResponseEntity.badRequest().body(null);
     }
 
-    @RolesAllowed("ADMIN")
+    /**
+     * This method Deletes a customer
+     * 
+     * @param id
+     * @return ResponseEntity<Customer>
+     */
     @DeleteMapping("/{id}")
+    @RolesAllowed("ADMIN")
     public ResponseEntity<Boolean> delete(@PathVariable String id) {
         return ResponseEntity.ok(customerService.deleteById(id));
     }

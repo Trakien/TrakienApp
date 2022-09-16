@@ -28,6 +28,11 @@ public class Customer {
     public Customer() {
     }
 
+    /**
+     * This method creates a Customer
+     * 
+     * @param customerDto
+     */
     public Customer(String id, String name, String password, String email, String lastName, Date createdAt) {
         this.id = id;
         this.name = name;

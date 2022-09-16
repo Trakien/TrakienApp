@@ -12,6 +12,7 @@ import co.trakien.entity.Customer;
 
 @Repository
 public interface CustomerRepository extends MongoRepository<Customer, String> {
+
     @Query("{$or: [{'name': {$regex: ?0, $options:'i'}}, {'lastName': {$regex: ?0, $options:'i'}}]}")
     List<Customer> findUsersWithNameOrLastNameLike(String name);
 

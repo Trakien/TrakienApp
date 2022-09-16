@@ -10,6 +10,13 @@ public class ServerErrorResponseDto {
     ErrorCodeEnum errorCode;
     int httpStatus;
 
+    /**
+     * This method creates a ServerErrorResponseDto
+     * 
+     * @param message
+     * @param errorCode
+     * @param httpStatus
+     */
     public ServerErrorResponseDto(String message, ErrorCodeEnum errorCode, HttpStatus httpStatus) {
         this.message = message;
         this.errorCode = errorCode;

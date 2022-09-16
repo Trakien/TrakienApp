@@ -16,6 +16,10 @@ public class TokenAuthentication
 
     List<String> roles;
 
+    /**
+     * This constructor can be used by an AuthenticationManager
+     * to build an Authentication object.
+     */
     public TokenAuthentication(String token, String subject, List<String> roles) {
         super(null);
         this.token = token;
@@ -23,21 +27,37 @@ public class TokenAuthentication
         this.roles = roles;
     }
 
+    /**
+     * This constructor can be used by an AuthenticationProvider
+     * to build an Authentication object.
+     */
     @Override
     public boolean isAuthenticated() {
         return !token.isEmpty() && !subject.isEmpty() && !roles.isEmpty();
     }
 
+    /**
+     * This constructor can be used by an AuthenticationProvider
+     * to build an Authentication object.
+     */
     @Override
     public Object getCredentials() {
         return token;
     }
 
+    /**
+     * This constructor can be used by an AuthenticationProvider
+     * to build an Authentication object.
+     */
     @Override
     public Object getPrincipal() {
         return subject;
     }
 
+    /**
+     * This constructor can be used by an AuthenticationProvider
+     * to build an Authentication object.
+     */
     @Override
     public Collection<GrantedAuthority> getAuthorities() {
         return roles.stream().map(role -> new SimpleGrantedAuthority("ROLE_" + role)).collect(

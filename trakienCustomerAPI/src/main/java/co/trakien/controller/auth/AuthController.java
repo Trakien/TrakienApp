@@ -32,10 +32,22 @@ public class AuthController {
 
     private final CustomerService customerService;
 
+    /**
+     * This method creates a token
+     * 
+     * @param loginDto
+     * @return ResponseEntity<TokenDto>
+     */
     public AuthController(@Autowired CustomerService customerService) {
         this.customerService = customerService;
     }
 
+    /**
+     * This method creates a token
+     * 
+     * @param loginDto
+     * @return ResponseEntity<TokenDto>
+     */
     @PostMapping
     public TokenDto login(@RequestBody LoginDto loginDto) {
 
@@ -47,6 +59,12 @@ public class AuthController {
         }
     }
 
+    /**
+     * This method generates a token
+     * 
+     * @param customer
+     * @return TokenDto
+     */
     private String generateToken(Customer customer, Date expirationDate) {
         return Jwts.builder()
                 .setSubject(customer.getId())
@@ -57,6 +75,12 @@ public class AuthController {
                 .compact();
     }
 
+    /**
+     * This method generates a token
+     * 
+     * @param customer
+     * @return TokenDto
+     */
     private TokenDto generateTokenDto(Customer customer) {
         Calendar expirationDate = Calendar.getInstance();
         expirationDate.add(Calendar.MINUTE, TOKEN_DURATION_MINUTES);

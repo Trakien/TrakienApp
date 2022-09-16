@@ -28,6 +28,12 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     public JwtRequestFilter() {
     }
 
+    /**
+     * This method is called for every request. It checks if the request has a valid
+     * JWT token.
+     * If it does, it sets the authentication in the context, to specify that the
+     * current user is authenticated.
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
