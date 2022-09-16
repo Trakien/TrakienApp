@@ -8,10 +8,10 @@
 		<relativePath />
 	</parent>
 	<groupId>co.trakien</groupId>
-	<artifactId>ApiUpdaterApplication</artifactId>
+	<artifactId>ProductApiApplication</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>apiUpdater</name>
-	<description>Updater for trakien app</description>
+	<name>productApi</name>
+	<description>productApi for trakien app</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
