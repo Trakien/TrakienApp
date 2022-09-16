@@ -3,6 +3,8 @@ package co.trakien.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +38,18 @@ public class TrakienCustomerAPIController {
     public ResponseEntity<CustomerDto> create(@RequestBody CustomerDto customer) {
         if (customer != null) {
             Customer account = customer.toCustomer();
+            account.addRol(RoleEnum.CUSTOMER);
+            return ResponseEntity
+                    .ok(customerService.create(account).toCustomerDTO());
+        } else
+            return ResponseEntity.badRequest().body(null);
+    }
+
+    @RolesAllowed("ADMIN")
+    @PostMapping
+    public ResponseEntity<CustomerDto> createAdmin(@RequestBody CustomerDto customer) {
+        if (customer != null) {
+            Customer account = customer.toCustomer();
             account.addRol(RoleEnum.ADMIN);
             return ResponseEntity
                     .ok(customerService.create(account).toCustomerDTO());
@@ -51,6 +65,7 @@ public class TrakienCustomerAPIController {
             return ResponseEntity.badRequest().body(null);
     }
 
+    @RolesAllowed("ADMIN")
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable String id) {
         return ResponseEntity.ok(customerService.deleteById(id));
