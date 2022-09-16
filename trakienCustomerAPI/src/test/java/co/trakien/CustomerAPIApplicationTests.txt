@@ -1,10 +1,14 @@
 package co.trakien;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.when;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import co.trakien.controller.auth.AuthController;
 import co.trakien.dto.LoginDto;
@@ -13,8 +17,21 @@ import co.trakien.dto.TokenDto;
 @SpringBootTest
 class TrakienCustomerAPIApplicationTests {
 
-	@Autowired
+	@Mock
 	private AuthController authController;
+
+	@Mock
+	private LoginDto loginDto;
+
+	@MockBean
+	private TokenDto token;
+
+	@BeforeEach
+	public void setUp() {
+		MockitoAnnotations.initMocks(this);
+		loginDto = new LoginDto("kali@admin.com", "kali");
+
+	}
 
 	@Test
 	void contextLoads() {
@@ -23,8 +40,7 @@ class TrakienCustomerAPIApplicationTests {
 
 	@Test
 	void getToken() {
-		TokenDto token;
-		token = authController.login(new LoginDto("kali@admin.com", "kali"));
+		when(token = authController.login(loginDto)).thenReturn(token);
 		assertTrue(token != null);
 	}
 
