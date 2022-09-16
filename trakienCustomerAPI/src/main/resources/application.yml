@@ -8,7 +8,7 @@ spring:
       authentication-database: admin
       username: admin
       password: admin
-      database: costumers
+      database: customers
       port: 27017
       host: db
 logging:
