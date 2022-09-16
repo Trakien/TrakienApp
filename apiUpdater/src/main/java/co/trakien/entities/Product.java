@@ -1,36 +1,99 @@
 package co.trakien.entities;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
+
+import org.springframework.data.annotation.Id;
 
 public class Product {
 
-    private List<Date> updates;
-    private HashMap<String, Item> brands;
+    @Id
+    private String id;
+    private String ref;
+    private String name;
+    private String category;
+    private List<Date> updateDates;
+    private List<Store> stores;
 
     public Product() {
     }
 
-    public Product(List<Date> updates, HashMap<String, Item> brands) {
-        this.updates = updates;
-        this.brands = brands;
+    public Product(String ref, String name, String category, List<Date> updateDates, List<Store> stores) {
+        this.ref = ref;
+        this.name = name;
+        this.category = category;
+        this.updateDates = updateDates;
+        this.stores = stores;
     }
 
-    public List<Date> getUpdates() {
-        return updates;
+    public Product(String id, String ref, String name, String category, List<Date> updateDates, List<Store> stores) {
+        this.id = id;
+        this.ref = ref;
+        this.name = name;
+        this.category = category;
+        this.updateDates = updateDates;
+        this.stores = stores;
     }
 
-    public void setUpdates(List<Date> updates) {
-        this.updates = updates;
+    public String getId() {
+        return id;
     }
 
-    public HashMap<String, Item> getBrands() {
-        return brands;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setBrands(HashMap<String, Item> brands) {
-        this.brands = brands;
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public List<Date> getUpdateDates() {
+        return updateDates;
+    }
+
+    public void setUpdateDates(List<Date> updateDates) {
+        this.updateDates = updateDates;
+    }
+
+    public List<Store> getStores() {
+        return stores;
+    }
+
+    public void setStores(List<Store> stores) {
+        this.stores = stores;
+    }
+
+    public void addStores(List<Store> stores) {
+        this.stores.addAll(stores);
+    }
+
+    public boolean existsStore(String storeName) {
+        for (Store store : stores) {
+            if (store.getName().equals(storeName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

@@ -31,26 +31,36 @@ def thread(url, notFirst, indice, page=""):
     res.extend(json.loads(dataLayer))
 
 
+def get_list(url):
+    page = get_page(url+"?page=1&pageSize=25&sort=relevance")
+    threads = list()
+    thread("", False, 1, page)
+    pages = get_numPages(page)
+    for i in range(pages):
+        t = threading.Thread(target=thread, args=(url, True, i + 2))
+        threads.append(t)
+    [t.start() for t in threads]
+    [t.join() for t in threads]
+
+
 class WebScraping(Resource):
 
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('url', required=True)
+        parser.add_argument('product', required=True)
         args = parser.parse_args()
         url = args['url']
-        print(url)
-        page = get_page(url+"?page=1&pageSize=25&sort=relevance")
+        product = int(args['product'])
         global res
         res = list()
-        threads = list()
-        thread("", False, 1, page)
-        pages = get_numPages(page)
-        for i in range(pages):
-            t = threading.Thread(
-                target=thread, args=(url, True, i + 2))
-            threads.append(t)
-        [t.start() for t in threads]
-        [t.join() for t in threads]
+        print(product)
+        print(url)
+        if (product == 0):
+            get_list(url)
+        else:
+            thread("", False, 1, get_page(url))
+
         return res
 
 

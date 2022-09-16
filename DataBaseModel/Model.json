@@ -1,11 +1,10 @@
-{
-    "category": "Celulares",
-	"update-date": ["12/9/2022","13/9/2022","14/9/2022"],
-	"marcas":{
-		"samsung": {
-			"100001223": {
-				"nombre": "galaxy bubbles pala",
-                "Tiendas":{
+[
+    {
+        "ref": "1",
+        "productName": "galaxy bubbles pala",
+        "category": "Celular",
+        "update-date": ["12/9/2022","13/9/2022","14/9/2022"],
+        "Tiendas":[{
                     "Ktronix":{
                         "url": "https://www.ktronix.com",
                         "precios":[2342,234,234]
@@ -14,38 +13,39 @@
                         "url": "https://www.alkosto.com",
                         "precios":[2342,234,234]
                     }
-                }
-				
-			},
-            "100001225": {
-				"nombre": "galaxy smothie pala",
-                "Tiendas":{
+                }]
+    },
+    {
+        "ref": "2",
+        "productName": "galaxy smothie pala",
+        "category": "Celular",
+        "update-date": ["12/9/2022","13/9/2022","14/9/2022"],
+        "Tiendas":[{
                     "Ktronix":{
                         "url": "https://www.ktronix.com",
-                        "precios":[2342,234,234]
+                        "precios":[1,2,3]
                     },
                     "alkosto":{
                         "url": "https://www.alkosto.com",
-                        "precios":[2342,234,234]
+                        "precios":[2,4,6]
                     }
-                }
-				
-			},
-
-            "100001226": {
-				"nombre": "galaxy smothie pala v2",
-                "Tiendas":{
+                }]
+    },
+    {
+        "ref": "3",
+        "productName": "galaxy smothie pala v2",
+        "category": "Celular",
+        "update-date": ["12/9/2022","13/9/2022","14/9/2022"],
+        "Tiendas":[{
                     "Ktronix":{
                         "url": "https://www.ktronix.com",
-                        "precios":[0,0,0,10000]
+                        "precios":[7,10,23]
                     },
                     "alkosto":{
                         "url": "https://www.alkosto.com",
-                        "precios":[]
+                        "precios":[12,13,18]
                     }
-                }
-				
-			}
-		}
-	} 
-}
+                }]
+        
+    }
+]
