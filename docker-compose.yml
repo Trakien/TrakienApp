@@ -9,7 +9,18 @@ services:
       dockerfile: Dockerfile
     container_name: mongoConnection
     ports:
-      - 80:8080
+      - 1234:8080
+    links:
+      - db
+  trakiencustomerapi:
+    environment:
+      - SECRET=admin
+    build:
+      context: ./trakienCustomerAPI
+      dockerfile: Dockerfile
+    container_name: trakiencustomerAPI
+    ports:
+      - 81:8080
     links:
       - db
   apiupdater:
