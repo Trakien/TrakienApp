@@ -1,6 +1,7 @@
 package co.trakien.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,6 +48,31 @@ public class ProductServicesMongo implements ProductServices {
         }
         flag = productRepository.findById(id).isEmpty();
         return flag;
+    }
+
+    @Override
+    public List<Product> getByBrand(String ref) {
+        return productRepository.getByBrand(ref);
+    }
+
+    @Override
+    public List<Product> getByCategory(String ref) {
+        return productRepository.getByCategory(ref);
+    }
+
+    @Override
+    public List<Product> getLikeName(String ref) {
+        return productRepository.getLikeName(ref);
+    }
+
+    @Override
+    public List<String> getAllBrands() {
+        return productRepository.getAllBrands();
+    }
+
+    @Override
+    public List<String> getAllCategories() {
+        return productRepository.getAllCategories();
     }
 
 }

@@ -2,6 +2,8 @@ package co.trakien.entities;
 
 import java.util.List;
 
+import com.google.gson.Gson;
+
 import co.trakien.dto.StoreDto;
 
 public class Store {
@@ -62,4 +64,8 @@ public class Store {
         return new StoreDto(name, url, prices.toString());
     }
 
+    public String toString() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
+    }
 }
