@@ -44,4 +44,13 @@ public class UpdaterController {
         return ResponseEntity.ok(productServices.deleteAll());
     }
 
+    @PutMapping
+    public ResponseEntity<Boolean> updateAll() {
+        try {
+            return ResponseEntity.ok(productServices.updateAll());
+        } catch (InterruptedException e) {
+            return ResponseEntity.ok(false);
+        }
+    }
+
 }

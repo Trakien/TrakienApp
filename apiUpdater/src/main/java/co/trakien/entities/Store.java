@@ -2,8 +2,6 @@ package co.trakien.entities;
 
 import java.util.List;
 
-import co.trakien.dto.StoreDto;
-
 public class Store {
 
     private String name;

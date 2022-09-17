@@ -39,7 +39,8 @@ public class KKKScraper extends ApiController {
     public List<Product> getProducts(int product) {
         List<Product> products = new ArrayList<>();
         try {
-            JSONArray array = new JSONArray(getData(product).body());
+            String response = getData(product).body();
+            JSONArray array = new JSONArray(response);
             for (int i = 0; i < array.length(); i++) {
                 JSONObject object = array.getJSONObject(i);
                 products.add(inicializador(object, i));
@@ -57,7 +58,6 @@ public class KKKScraper extends ApiController {
                 .append("\"url\":\"" + url + "\",")
                 .append("\"product\":\"" + product + "\"")
                 .append("}").toString();
-        System.out.println(json);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(json))
@@ -73,6 +73,7 @@ public class KKKScraper extends ApiController {
         product.setRef(object.getString("id"));
         product.setName(object.getString("name"));
         product.setCategory(category);
+        product.setBrand(object.getString("brand"));
         List<Date> updateDates = new ArrayList<>();
         updateDates.add(new Date());
         product.setUpdateDates(updateDates);
@@ -80,7 +81,7 @@ public class KKKScraper extends ApiController {
         prices.add(object.getString("price"));
         List<Store> stores = new ArrayList<>();
         Store store = new Store(name, url.substring(0,
-                url.indexOf(".com") + 5) + object.getString("name").replace("\"", "").toLowerCase().replace(" ", "-")
+                url.indexOf(".com") + 4)
                 + "/p/"
                 + object.getString("id"),
                 prices);

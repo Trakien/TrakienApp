@@ -11,13 +11,5 @@ spring:
       database: products
       port: 27017
       host: db
-logging:
-  level:
-    org:
-      springframework:
-        data:
-          mongodb:
-            core:
-              MongoTemplate: DEBUG
 app:
   secret: ${SECRET}

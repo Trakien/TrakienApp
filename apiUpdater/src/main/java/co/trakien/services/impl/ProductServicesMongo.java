@@ -2,8 +2,11 @@ package co.trakien.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.stereotype.Service;
 
 import co.trakien.apis.ApiController;
@@ -11,9 +14,14 @@ import co.trakien.entities.Product;
 import co.trakien.entities.Store;
 import co.trakien.repository.ProductRepository;
 import co.trakien.services.ProductServices;
+import co.trakien.updater.Updater;
 
 @Service
 public class ProductServicesMongo implements ProductServices {
+
+    private int THREADS;
+    @Autowired
+    private AutowireCapableBeanFactory beanFactory;
 
     private final ProductRepository productRepository;
 
@@ -28,23 +36,29 @@ public class ProductServicesMongo implements ProductServices {
             product.setId(savedProduct.getId());
             Store store = product.getStores().get(0);
             if (!savedProduct.existsStore(store.getName())) {
-                store.initPrices(savedProduct.getUpdateDates().size());
-                product.addStores(updateProduct(savedProduct).getStores());
+                product.addStores(savedProduct.getStores());
             }
         }
         return productRepository.save(product);
     }
 
-    public Product updateProduct(Product product) {
-        List<Store> newStores = new ArrayList<>();
-        for (Store store : product.getStores()) {
-            String updatedPrice = ApiController.identifyStore(store.getName(), store.getUrl(), product.getCategory())
-                    .getProducts(1).get(0).getStores().get(0).getPrices().get(0);
-            store.addPrice(updatedPrice);
-            newStores.add(store);
+    @Override
+    public boolean updateAll() throws InterruptedException {
+        List<Product> products = getAll();
+        THREADS = products.size();
+        ExecutorService pool = Executors.newFixedThreadPool(THREADS);
+        List<Updater> updaters = new ArrayList<>();
+        int slicer = (int) (Math.floorDiv(products.size() * -1, THREADS)) * -1;
+        for (int i = 0; i < THREADS; i++) {
+            List<Product> slicerProducts = products.subList(slicer * i,
+                    slicer * (i + 1) > products.size() ? products.size() : slicer * (i + 1));
+            Updater updater = new Updater(slicerProducts);
+            beanFactory.autowireBean(updater);
+            updaters.add(updater);
         }
-        // product.setStores(newStores);
-        return product;
+        pool.invokeAll(updaters);
+        pool.shutdown();
+        return true;
     }
 
     @Override
