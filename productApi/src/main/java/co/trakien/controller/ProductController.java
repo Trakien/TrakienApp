@@ -12,7 +12,7 @@ import co.trakien.entities.Product;
 import co.trakien.services.ProductServices;
 
 @RestController
-@RequestMapping("/api/v2/productapi")
+@RequestMapping("/api/v2/products")
 public class ProductController {
 
     @Autowired
@@ -25,28 +25,10 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<ProductDto> findById(@PathVariable String id) {
-        Product product = productServices.findById(id);
-        return ResponseEntity
-                .ok((product != null) ? product.toProductDto() : null);
-    }
-
     @GetMapping("/ref/{ref}")
     public ResponseEntity<ProductDto> findByRef(@PathVariable String ref) {
         Product product = productServices.findByRef(ref);
         return ResponseEntity
                 .ok((product != null) ? product.toProductDto() : null);
     }
-
-    @DeleteMapping
-    public ResponseEntity<Boolean> deleteAll() {
-        return ResponseEntity.ok(productServices.deleteAll());
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Boolean> deleteById(@PathVariable String id) {
-        return ResponseEntity.ok(productServices.deleteById(id));
-    }
-
 }
