@@ -1,0 +1,444 @@
+{
+	"info": {
+		"_postman_id": "dd77e4be-7ffc-48f3-8710-12681497214b",
+		"name": "Tests Base Datos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20953547"
+	},
+	"item": [
+		{
+			"name": "LogIn credenciales correctas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Login test pass', function (){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test('Login test pass', function (){",
+							"    const {token} = pm.response.json();",
+							"    pm.environment.set('Token',token);",
+							"    return token",
+							"});",
+							" "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"password\":\"kali\",\n\t\"email\": \"kali@admin.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "trakiencustomerapi/v2/auth",
+					"host": [
+						"trakiencustomerapi"
+					],
+					"path": [
+						"v2",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LogInBadCredentials",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Registrar test incompleto fail', function (){",
+							"    pm.response.to.have.status(500)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"password\":\"kalii\",\n\t\"email\": \"kali@admin.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "trakiencustomerapi/v2/auth",
+					"host": [
+						"trakiencustomerapi"
+					],
+					"path": [
+						"v2",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll con credenciales correctas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('GetAll test pass', function (){",
+							"    pm.response.to.have.status(200)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "trakiencustomerapi/api/v2/customers",
+					"host": [
+						"trakiencustomerapi"
+					],
+					"path": [
+						"api",
+						"v2",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll forbiden sin credenciales",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('GetAll test forbidden', function (){",
+							"    pm.response.to.have.status(403)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "trakiencustomerapi/api/v2/customers",
+					"host": [
+						"trakiencustomerapi"
+					],
+					"path": [
+						"api",
+						"v2",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar con todos los datos",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let date = Date.now();",
+							"let email = 'kali.' + date + '@test.com';",
+							"pm.environment.set('email',email)"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Registrar test pass', function (){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"pm.test('registrar test pass', function (){",
+							"    const {id} = pm.response.json();",
+							"    pm.environment.set('Id',id);",
+							"    return id",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"AdminPala\",\n\t\"passwd\":\"kali\",\n\t\"email\": \"{{email}}\",\n\t\"lastName\":\"Pachanguero\",\n\t\"createdAt\": \"15/09/2022\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "trakiencustomerapi/api/v2/customers",
+					"host": [
+						"trakiencustomerapi"
+					],
+					"path": [
+						"api",
+						"v2",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar incompleto ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Registrar test fail', function (){",
+							"    pm.response.to.have.status(500)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Admin\",\n\t\"passwd\":\"kali\",\n\t\"email\": \"kali@admin.com\",\n\t\"lastName\":\"Pachanguero\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "trakiencustomerapi/api/v2/customers",
+					"host": [
+						"trakiencustomerapi"
+					],
+					"path": [
+						"api",
+						"v2",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete con credenciales",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('eliminar test pass', function (){",
+							"    pm.response.to.have.status(200)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Admin\",\n\t\"passwd\":\"kali\",\n\t\"email\": \"kali@admin.com\",\n\t\"lastName\":\"Pachanguero\",\n\t\"createdAt\": \"15/09/2022\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "trakiencustomerapi/api/v2/customers/6324cd8f3a38830d6162c618",
+					"host": [
+						"trakiencustomerapi"
+					],
+					"path": [
+						"api",
+						"v2",
+						"customers",
+						"6324cd8f3a38830d6162c618"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete forbidden",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('eliminar test forbidden', function (){",
+							"    pm.response.to.have.status(403)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Admin\",\n\t\"passwd\":\"kali\",\n\t\"email\": \"kali@admin.com\",\n\t\"lastName\":\"Pachanguero\",\n\t\"createdAt\": \"15/09/2022\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "trakiencustomerapi/api/v2/customers",
+					"host": [
+						"trakiencustomerapi"
+					],
+					"path": [
+						"api",
+						"v2",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete del usuario creado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('eliminar test pass', function (){",
+							"    pm.response.to.have.status(200)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Admin\",\n\t\"passwd\":\"kali\",\n\t\"email\": \"kali@admin.com\",\n\t\"lastName\":\"Pachanguero\",\n\t\"createdAt\": \"15/09/2022\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "trakiencustomerapi/api/v2/customers/{{Id}}",
+					"host": [
+						"trakiencustomerapi"
+					],
+					"path": [
+						"api",
+						"v2",
+						"customers",
+						"{{Id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
