@@ -1,0 +1,42 @@
+[
+  {
+    "id": "63253418804d1808c3c838f4",
+    "ref": "6934177767241",
+    "name": "Celular XIAOMI Redmi Note 11 4GB+128GB Gris",
+    "category": "test",
+    "brand": "XIAOMI",
+    "updateDates": ["2022-09-17T02:42:35.317+00:00"],
+    "stores": [
+      {
+        "name": "Ktronix",
+        "url": "https://www.ktronix.com/p/6934177767241",
+        "prices": ["835900"]
+      },
+      {
+        "name": "Alkomprar",
+        "url": "https://www.alkomprar.com/p/6934177767241",
+        "prices": ["835900"]
+      }
+    ]
+  },
+  {
+    "id": "63253418804d1808c3c838f5",
+    "ref": "194252099094",
+    "name": "iPhone 11 128 GB &quot;Negro",
+    "category": "test",
+    "brand": "APPLE",
+    "updateDates": ["2022-09-17T02:42:35.317+00:00"],
+    "stores": [
+      {
+        "name": "Ktronix",
+        "url": "https://www.ktronix.com/p/194252099094",
+        "prices": ["2559000"]
+      },
+      {
+        "name": "Alkomprar",
+        "url": "https://www.alkomprar.com/p/194252099094",
+        "prices": ["2559000"]
+      }
+    ]
+  }
+]

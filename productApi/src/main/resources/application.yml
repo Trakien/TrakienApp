@@ -1,0 +1,23 @@
+server:
+  error:
+    include-message: always
+spring:
+  data:
+    mongodb:
+      auto-index-creation: true
+      authentication-database: admin
+      username: admin
+      password: admin
+      database: products
+      port: 27017
+      host: db
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
+app:
+  secret: ${SECRET}
