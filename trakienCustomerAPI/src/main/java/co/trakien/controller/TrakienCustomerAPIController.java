@@ -69,7 +69,7 @@ public class TrakienCustomerAPIController {
      * @param customer
      * @return ResponseEntity<CustomerDto>
      */
-    @PostMapping
+    @PostMapping("/admin")
     @RolesAllowed("ADMIN")
     public ResponseEntity<CustomerDto> createAdmin(@RequestBody CustomerDto customer) {
         if (customer != null) {
