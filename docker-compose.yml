@@ -35,6 +35,7 @@ services:
     links:
       - db
       - webscraper
+      - trakiencustomerapi
   productapi:
     environment:
       - SECRET=admin
@@ -46,6 +47,7 @@ services:
       - 4599:8080
     links:
       - db
+      - trakiencustomerapi
   webscraper:
     environment:
       - FLASK_APP=WebScrapingKKK.py

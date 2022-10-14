@@ -70,4 +70,10 @@ public class CustomerServiceHashMap implements CustomerService {
         return Optional.empty();
     }
 
+    @Override
+    public void deleteAll() {
+        // TODO Auto-generated method stub
+
+    }
+
 }
