@@ -16,5 +16,7 @@ public interface CustomerService {
 
     Customer update(Customer customer, String customerId);
 
+    void deleteAll();
+
     Optional<Customer> findByEmail(String email);
 }

@@ -1,6 +1,5 @@
 package co.trakien.dto;
 
-import java.text.SimpleDateFormat;
 import co.trakien.entity.Customer;
 
 public class CustomerDto {
@@ -133,12 +132,7 @@ public class CustomerDto {
     }
 
     public Customer toCustomer() {
-        try {
-            return new Customer(id, name, passwd, email, lastName, new SimpleDateFormat("dd/MM/yyyy").parse(createdAt));
-        } catch (Exception e) {
-            return null;
-        }
-
+        return new Customer(name, passwd, email, lastName);
     }
 
     /**
