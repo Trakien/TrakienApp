@@ -12,11 +12,21 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Email_Password_Fields from "../components/Email-Password.component";
 import RedirecTag from "../components/RedirectTag.component";
 import Router from "next/router";
+import "react-notifications/lib/notifications.css";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
 
 const theme = createTheme();
 
 const SignUp = (props) => {
   
+const createNotification = async (type, title, message, time) => {
+  type === "success"
+    ? NotificationManager.success(message, title, time)
+    : NotificationManager.error(message, title, time);
+};
 
 
   const handleSubmit = (event) => {
@@ -29,7 +39,7 @@ const SignUp = (props) => {
       password: data.get("password"),
       createdAt: new Date(),
     };
-    fetch("http://localhost:81/v2/users", {
+    fetch("http://localhost:81/api/v2/customers", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,14 +47,21 @@ const SignUp = (props) => {
       body: JSON.stringify(jsondata),
     })
       .then((response) => response.json())
-      .then(
-        Router.push("/login")
+      .then((data) => {
+        console.log(data);
+        if(data.status === 200) {
+        Router.push("/login")}
+      else {createNotification("error", "Error", "Ha ocurrido un error inesperado, vuelve a intentar mas tarde.", 3000)}
+    }
       );
   };
 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
+      <div>
+        <NotificationContainer />
+      </div>
         <CssBaseline />
         <Box
           sx={{
