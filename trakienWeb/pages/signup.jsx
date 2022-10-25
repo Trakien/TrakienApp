@@ -36,8 +36,7 @@ const createNotification = async (type, title, message, time) => {
       name: data.get("firstName"),
       email: data.get("email"),
       lastName: data.get("lastName"),
-      password: data.get("password"),
-      createdAt: new Date(),
+      passwd: data.get("password"),
     };
     fetch("http://localhost:81/api/v2/customers", {
       method: "POST",
@@ -46,14 +45,11 @@ const createNotification = async (type, title, message, time) => {
       },
       body: JSON.stringify(jsondata),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        if(data.status === 200) {
+      .then((response) => {console.log(response);
+      if(response.status === 200) {
         Router.push("/login")}
-      else {createNotification("error", "Error", "Ha ocurrido un error inesperado, vuelve a intentar mas tarde.", 3000)}
-    }
-      );
+      else {rta = createNotification("error", "Error", "Ha ocurrido un error inesperado, vuelve a intentar mas tarde.", 3000)}
+      })
   };
 
   return (

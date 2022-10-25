@@ -71,7 +71,7 @@ const SignIn = (props) => {
             </Button>
             <RedirecTag
               info="Eres nuevo? Creemos una nueva cuenta"
-              redirectUrl="/signin"
+              redirectUrl="/signup"
             ></RedirecTag>
           </Box>
         </Box>
