@@ -15,6 +15,7 @@ import co.trakien.util.RoleEnum;
 
 @RestController
 @RequestMapping("/api/v2/customers")
+@CrossOrigin("*")
 public class TrakienCustomerAPIController {
 
     @Autowired
