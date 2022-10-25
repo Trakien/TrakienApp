@@ -13,6 +13,7 @@ import co.trakien.services.ProductServices;
 
 @RestController
 @RequestMapping("/api/v2/products")
+@CrossOrigin("*")
 public class ProductController {
 
     @Autowired
