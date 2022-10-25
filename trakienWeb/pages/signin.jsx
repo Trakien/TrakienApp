@@ -3,7 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -12,13 +11,35 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Email_Password_Fields from "../components/Email-Password.component";
 import RedirecTag from "../components/RedirectTag.component";
+import Router from "next/router";
 
 const theme = createTheme();
 
-export default function SignUp() {
+const SignUp = (props) => {
+  
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+  var jsondata = {
+      name: data.get("firstName"),
+      email: data.get("email"),
+      lastName: data.get("lastName"),
+      password: data.get("password"),
+      createdAt: new Date(),
+    };
+    fetch("http://localhost:81/v2/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(jsondata),
+    })
+      .then((response) => response.json())
+      .then(
+        Router.push("/login")
+      );
   };
 
   return (
@@ -87,3 +108,4 @@ export default function SignUp() {
     </ThemeProvider>
   );
 }
+export default SignUp;
