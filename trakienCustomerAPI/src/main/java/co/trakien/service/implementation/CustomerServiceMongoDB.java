@@ -30,7 +30,6 @@ public class CustomerServiceMongoDB implements CustomerService {
      */
     @Override
     public Customer create(Customer customer) {
-        customer.addRol(RoleEnum.ADMIN);
         return customerRepository.insert(customer);
     }
 
