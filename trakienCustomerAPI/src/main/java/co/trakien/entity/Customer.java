@@ -18,9 +18,9 @@ public class Customer {
     @Id
     private String id;
     private String name;
-    @Indexed(unique = true)
     private String passwordHash;
     private List<RoleEnum> roles = new ArrayList<>();
+    @Indexed(unique = true)
     private String email;
     private String lastName;
     private Date createdAt;

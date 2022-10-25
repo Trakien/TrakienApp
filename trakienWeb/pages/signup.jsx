@@ -40,6 +40,7 @@ const createNotification = async (type, title, message, time) => {
     };
     fetch("http://localhost:81/api/v2/customers", {
       method: "POST",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
@@ -48,7 +49,7 @@ const createNotification = async (type, title, message, time) => {
       .then((response) => {console.log(response);
       if(response.status === 200) {
         Router.push("/login")}
-      else {rta = createNotification("error", "Error", "Ha ocurrido un error inesperado, vuelve a intentar mas tarde.", 3000)}
+      else {createNotification("error", "Error", "Ha ocurrido un error inesperado, vuelve a intentar mas tarde.", 3000)}
       })
   };
 
