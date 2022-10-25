@@ -28,6 +28,14 @@ public class Customer {
     public Customer() {
     }
 
+    public Customer(String name, String passwordHash, String email, String lastName) {
+        this.name = name;
+        this.passwordHash = BCrypt.hashpw(passwordHash, BCrypt.gensalt());
+        this.email = email;
+        this.lastName = lastName;
+        createdAt = new Date();
+    }
+
     /**
      * This method creates a Customer
      * 

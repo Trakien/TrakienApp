@@ -79,4 +79,10 @@ public class CustomerServiceMongoDB implements CustomerService {
         return customerRepository.findByEmail(email);
     }
 
+    @Override
+    public void deleteAll() {
+        customerRepository.deleteAll();
+
+    }
+
 }

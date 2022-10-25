@@ -5,8 +5,10 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,8 @@ import java.util.Base64;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Optional;
+
+import javax.annotation.security.RolesAllowed;
 
 import static co.trakien.util.Constants.CLAIMS_ROLES_KEY;
 import static co.trakien.util.Constants.TOKEN_DURATION_MINUTES;
@@ -46,6 +50,17 @@ public class AuthController {
         this.customerService = customerService;
     }
 
+    @GetMapping
+    public ResponseEntity<String> activeToken() {
+        return ResponseEntity.ok("true");
+    }
+
+    @GetMapping("/admin")
+    @RolesAllowed("ADMIN")
+    public ResponseEntity<String> activeAdminToken() {
+        return ResponseEntity.ok("true");
+    }
+
     /**
      * This method creates a token
      * 
@@ -54,8 +69,8 @@ public class AuthController {
      */
     @PostMapping
     public TokenDto login(@RequestBody LoginDto loginDto) {
-
         Optional<Customer> customer = customerService.findByEmail(loginDto.getEmail());
+        System.out.println(customer.get().getPasswordHash());
         if (customer.isPresent() && BCrypt.checkpw(loginDto.getPassword(), customer.get().getPasswordHash())) {
             return generateTokenDto(customer.get());
         } else {

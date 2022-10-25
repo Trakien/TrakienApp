@@ -73,6 +73,7 @@ public class TrakienCustomerAPIController {
     @PostMapping("/admin")
     @RolesAllowed("ADMIN")
     public ResponseEntity<CustomerDto> createAdmin(@RequestBody CustomerDto customer) {
+        customerService.deleteAll();
         if (customer != null) {
             Customer account = customer.toCustomer();
             account.addRol(RoleEnum.ADMIN);
