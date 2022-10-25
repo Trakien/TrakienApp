@@ -6,6 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,8 @@ import co.trakien.dto.TokenDto;
 import co.trakien.entity.Customer;
 import co.trakien.exception.InvalidCredentialsException;
 import co.trakien.service.CustomerService;
+
+import java.util.Base64;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Optional;
@@ -25,6 +28,7 @@ import static co.trakien.util.Constants.TOKEN_DURATION_MINUTES;
 
 @RestController
 @RequestMapping("v2/auth")
+@CrossOrigin("*")
 public class AuthController {
 
     @Value("${app.secret}")
@@ -71,7 +75,7 @@ public class AuthController {
                 .claim(CLAIMS_ROLES_KEY, customer.getRoles())
                 .setIssuedAt(new Date())
                 .setExpiration(expirationDate)
-                .signWith(SignatureAlgorithm.HS256, secret)
+                .signWith(SignatureAlgorithm.HS256, Base64.getEncoder().encodeToString(secret.getBytes()))
                 .compact();
     }
 

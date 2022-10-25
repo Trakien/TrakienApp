@@ -58,18 +58,6 @@ services:
       - 5000:5000
     links:
       - db
-  trakienweb:
-    environment:
-      - SECRET=admin
-    build:
-      context: ./trakienWeb
-      dockerfile: Dockerfile
-    container_name: trakienWeb
-    ports:
-      - 8080:3000
-    links:
-      - productapi
-      - trakiencustomerapi
   db:
     image: mongo:latest
     container_name: db
