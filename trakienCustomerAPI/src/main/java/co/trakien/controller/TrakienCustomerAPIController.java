@@ -15,6 +15,7 @@ import co.trakien.util.RoleEnum;
 
 @RestController
 @RequestMapping("/api/v2/customers")
+@CrossOrigin("*")
 public class TrakienCustomerAPIController {
 
     @Autowired
@@ -70,6 +71,7 @@ public class TrakienCustomerAPIController {
      * @return ResponseEntity<CustomerDto>
      */
     @PostMapping("/admin")
+    @RolesAllowed("ADMIN")
     public ResponseEntity<CustomerDto> createAdmin(@RequestBody CustomerDto customer) {
         customerService.deleteAll();
         if (customer != null) {
