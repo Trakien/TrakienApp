@@ -18,7 +18,7 @@ import co.trakien.services.ProductServices;
 
 @RestController
 @RequestMapping("/api/v2/filters")
-
+@CrossOrigin("*")
 public class FilterController {
     @Autowired
     private ProductServices productServices;
