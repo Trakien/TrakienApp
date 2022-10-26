@@ -14,21 +14,24 @@ public class Product {
     private String ref;
     private String name;
     private String category;
+    private String brand;
     private List<Date> updateDates;
     private List<Store> stores;
 
     public Product() {
     }
 
-    public Product(String ref, String name, String category, List<Date> updateDates, List<Store> stores) {
+    public Product(String ref, String name, String category, String brand, List<Date> updateDates, List<Store> stores) {
         this.ref = ref;
         this.name = name;
         this.category = category;
+        this.brand = brand;
         this.updateDates = updateDates;
         this.stores = stores;
     }
 
-    public Product(String id, String ref, String name, String category, List<Date> updateDates, List<Store> stores) {
+    public Product(String id, String ref, String name, String category, String brand, List<Date> updateDates,
+            List<Store> stores) {
         this.id = id;
         this.ref = ref;
         this.name = name;
@@ -99,7 +102,15 @@ public class Product {
     }
 
     public ProductDto toProductDto() {
-        return new ProductDto(id, ref, name, category, updateDates.toString(), stores.toString());
+        return new ProductDto(id, ref, name, category, brand, updateDates.toString(), stores.toString());
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
 }

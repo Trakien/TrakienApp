@@ -2,7 +2,8 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    margin: 0;
+    margin: 1%;
+    padding: 0% 3%;
 }
 
 .pagination{
@@ -14,12 +15,28 @@
     padding: 2%;
 }
 
+.filterBox{
+    border-radius: 10px;
+    border: 2px solid #000;
+    margin: 1% 0%;
+}
+
 .filters{
-    margin: 0;
+    display: flex;
+    justify-content: center;  
 }
 
 .products{
     padding: 1%;
     background-color: rgb(82, 104, 176);
     border-radius: 10px;
+    margin: 1% 0%;
+}
+
+.grids{
+    padding: 2%;
+}
+
+.search{
+    flex-direction: row;
 }

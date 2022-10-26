@@ -87,6 +87,8 @@ public class FilterController {
             return ResponseEntity.status(statusCode).build();
     }
 
+    @GetMapping("/all")
+
     private int validToken(String token) {
         int code;
         if (token != null) {

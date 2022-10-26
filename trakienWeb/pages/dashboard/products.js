@@ -1,27 +1,26 @@
 import ProductCard from "../../components/productCard.component";
-import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 import Router from "next/router";
 import Pagination from "@mui/material/Pagination";
 import { useState, useEffect } from "react";
 import Cookies from "universal-cookie";
 import styles from "../../styles/dashboard/Products.module.css";
-import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
-import TextField from "@mui/material/TextField";
 import MultipleFilter from "../../components/multipleFilter.component";
+import SearchFilter from "../../components/searchFilter.component";
 
 export default function Products() {
   const cookies = new Cookies();
   const token = cookies.get("token");
   const items = 25;
   const [products, setProducts] = useState([]);
+  const [filterProducts, setFilterProducts] = useState([]);
   const [brands, setBrands] = useState([]);
   const [categories, setCategories] = useState([]);
   const [page, setPage] = useState(1);
   const totalPages = Math.ceil(products.length / items);
-  const [search, setSearch] = useState("");
-  const [brand, setBrand] = useState([]);
-  const [category, setCategory] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [brandFilter, setBrandFilter] = useState([]);
+  const [categoryFilter, setCategoryFilter] = useState([]);
 
   function getBackend(route, setter) {
     if (token != null) {
@@ -38,6 +37,7 @@ export default function Products() {
           switch (setter) {
             case 0:
               setProducts(data);
+              setFilterProducts(data);
               break;
             case 1:
               setCategories(data);
@@ -54,6 +54,14 @@ export default function Products() {
 
   function handleChangePage(event, page) {
     setPage(page);
+  }
+
+  function actionFilterProducts() {
+    products.map((product) => {
+      if (product.brand == brand && product.category == category) {
+        setFilterProducts(product);
+      }
+    });
   }
 
   function getMin(data, opt) {
@@ -77,12 +85,34 @@ export default function Products() {
     getBackend("filters/categories", 1);
     getBackend("filters/brands", 2);
   }, []);
+
+  useEffect(() => {
+    actionFilterProducts();
+  }, [searchQuery, brandFilter, categoryFilter]);
   return (
     <div className="container">
       <title>Products</title>
       <main>
-        <div className={styles.content}>
+        <Box className={styles.content}>
           <h1 className="title">Products</h1>
+          <Box className={styles.filterBox}>
+            <h3>Filters</h3>
+            <Box className={styles.filters}>
+              <SearchFilter value={searchQuery} setter={setSearchQuery} />
+              <MultipleFilter
+                list={categories}
+                name={"Category"}
+                value={categoryFilter}
+                setter={setCategoryFilter}
+              />
+              <MultipleFilter
+                list={brands}
+                name={"Brand"}
+                value={brandFilter}
+                setter={setBrandFilter}
+              />
+            </Box>
+          </Box>
           <Pagination
             count={totalPages}
             page={page}
@@ -90,41 +120,22 @@ export default function Products() {
             size="large"
             className={styles.pagination}
           />
-          <Grid container spacing={3} columns={16} className={styles.separator}>
-            <Grid item xs={4} className={styles.filters}>
-              <h3>Filters</h3>
-              <TextField
-                id="search-bar"
-                className="text"
-                onInput={(e) => {
-                  setSearchQuery(e.target.value);
-                }}
-                label="Search by name"
-                variant="outlined"
-                placeholder="Search..."
-                size="small"
-              />
-              <IconButton type="submit" aria-label="search">
-                <SearchIcon style={{ fill: "blue" }} />
-              </IconButton>
-              <MultipleFilter list={categories} />
-            </Grid>
-            <Grid item xs={12} className={styles.products}>
-              {products
-                .slice(page * items, page * items + items)
-                .map((product) => (
-                  <ProductCard
-                    name={product.name}
-                    updateDates={product.updateDates.slice(1, -1).split(",")}
-                    prices={getMin(product.stores, "price")}
-                    url={getMin(product.stores, "url")}
-                    minName={getMin(product.stores, "name")}
-                    key={product.id}
-                  />
-                ))}
-            </Grid>
-          </Grid>
-        </div>
+          <Box className={styles.products}>
+            {filterProducts
+              .slice(page * items, page * items + items)
+              .map((product) => (
+                <ProductCard
+                  name={product.name}
+                  brand={product.brand}
+                  updateDates={product.updateDates.slice(1, -1).split(",")}
+                  prices={getMin(product.stores, "price")}
+                  url={getMin(product.stores, "url")}
+                  minName={getMin(product.stores, "name")}
+                  key={product.id}
+                />
+              ))}
+          </Box>
+        </Box>
       </main>
     </div>
   );
