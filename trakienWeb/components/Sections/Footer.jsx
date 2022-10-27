@@ -18,7 +18,7 @@ export default function Contact() {
             <Link className="flexCenter animate pointer" to="home" smooth={true} offset={-80}>
               <LogoImg />
               <h1 className="font15 extraBold whiteColor" style={{ marginLeft: "15px" }}>
-                Fanatic
+                Trakien
               </h1>
             </Link>
             <StyleP className="whiteColor font13">
@@ -26,7 +26,7 @@ export default function Contact() {
             </StyleP>
 
             <Link className="whiteColor animate pointer font13" to="home" smooth={true} offset={-80}>
-              Back to top
+              Inicio
             </Link>
           </InnerWrapper>
         </div>

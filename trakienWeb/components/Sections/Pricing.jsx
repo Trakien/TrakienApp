@@ -9,63 +9,29 @@ export default function Pricing() {
       <div className="whiteBg">
         <div className="container">
           <HeaderInfo>
-            <h1 className="font40 extraBold">Check Our Pricing</h1>
-            <p className="font13">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+            <h1 className="font40 extraBold">Premium</h1>
+            <p className="font25">
+              Con premium podrás disfrutar de todas las funcionalidades de Trakien.
               <br />
-              labore et dolore magna aliquyam erat, sed diam voluptua.
+              Invierte inteligente, invierte Trakien. 
             </p>
-          </HeaderInfo>
-          <TablesWrapper className="flexSpaceNull">
-            <TableBox>
-              <PricingTable
-                icon="roller"
-                price="$29,99/mo"
-                title="Starter"
-                text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor."
-                offers={[
-                  { name: "Product Offer", cheked: true },
-                  { name: "Offer", cheked: true },
-                  { name: "Product Offer #2", cheked: false },
-                  { name: "Product", cheked: false },
-                  { name: "Product Offer", cheked: false },
-                ]}
-                action={() => alert("clicked")}
-              />
-            </TableBox>
+          </HeaderInfo>            
             <TableBox>
               <PricingTable
                 icon="monitor"
-                price="$49,99/mo"
-                title="Basic"
-                text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor."
+                price="$5.000/mo"
+                title="Plan premium"
+                text="Desbloquea todo el potencial de Trakien."
                 offers={[
-                  { name: "Product Offer", cheked: true },
-                  { name: "Offer", cheked: true },
-                  { name: "Product Offer #2", cheked: true },
-                  { name: "Product", cheked: true },
-                  { name: "Product Offer", cheked: false },
+                  { name: "Monitoreo de precios", cheked: true },
+                  { name: "Estadisticas en tiempo real", cheked: true },
+                  { name: "Alertas personalizadas", cheked: true },
+                  { name: "Acceso total al catalogo de productos", cheked: true },
+                  { name: "Historial de precios", cheked: true },
                 ]}
                 action={() => alert("clicked")}
               />
             </TableBox>
-            <TableBox>
-              <PricingTable
-                icon="browser"
-                price="$59,99/mo"
-                title="Golden"
-                text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor."
-                offers={[
-                  { name: "Product Offer", cheked: true },
-                  { name: "Offer", cheked: true },
-                  { name: "Product Offer #2", cheked: true },
-                  { name: "Product", cheked: true },
-                  { name: "Product Offer", cheked: true },
-                ]}
-                action={() => alert("clicked")}
-              />
-            </TableBox>
-          </TablesWrapper>
         </div>
       </div>
     </Wrapper>
@@ -88,7 +54,6 @@ const TablesWrapper = styled.div`
   }
 `;
 const TableBox = styled.div`
-  width: 31%;
   @media (max-width: 860px) {
     width: 100%;
     max-width: 370px;
