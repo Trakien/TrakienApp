@@ -4,6 +4,7 @@ import CardHeader from "@mui/material/CardHeader";
 import Typography from "@mui/material/Typography";
 import LinkIcon from "@mui/icons-material/Link";
 import IconButton from "@mui/material/IconButton";
+import Charts from "./charts.component";
 import React from "react";
 
 export default class TaskCard extends React.Component {
@@ -50,6 +51,9 @@ export default class TaskCard extends React.Component {
                 <LinkIcon />
               </IconButton>
             </a>
+          </Typography>
+          <Typography component="h5" variant="h6" align="center">
+            <Charts name={this.props.name} />
           </Typography>
           <Typography component="h6" variant="h7" align="right">
             Update Date: {this.getLast(this.props.updateDates)}
