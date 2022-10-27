@@ -55,9 +55,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 }
                 String token = optionalCookie.isPresent() ? optionalCookie.get().getValue() : headerJwt;
                 if (token != null) {
-
-                    Jws<Claims> claims = Jwts.parser().setSigningKey(
-                            Base64.getEncoder().encodeToString(secret.getBytes())).parseClaimsJws(token);
+                    Jws<Claims> claims = Jwts.parser()
+                            .setSigningKey(Base64.getEncoder().encodeToString(secret.getBytes())).parseClaimsJws(token);
                     Claims claimsBody = claims.getBody();
                     String subject = claimsBody.getSubject();
                     System.out.println(subject);
