@@ -24,9 +24,25 @@ public interface ProductRepository extends MongoRepository<Product, String> {
     @Query("{'brand': {$regex: ?0, $options:'i'}}")
     List<Product> getLikeName(String ref);
 
-    @Aggregation(pipeline = { "{ '$group': { '_id' : '$brand' } }" })
+    @Query("{'name': {$regex: ?0, $options:'i'}, 'brand': {$in: ?1}, 'category': {$in: ?2}}")
+    List<Product> getAllFilter(String search, List<String> brands, List<String> category);
+
+    @Aggregation(pipeline = {
+            "{'$group': { '_id' : '$brand' } }" })
     List<String> getAllBrands();
 
-    @Aggregation(pipeline = { "{ '$group': { '_id' : '$category' } }" })
+    @Aggregation(pipeline = {
+            "{'$group': { '_id' : '$category' } }" })
     List<String> getAllCategories();
+
+    @Aggregation(pipeline = {
+            "{'$match': { category : { '$in' : ?0 } } }", "{ '$match': { 'name': {$regex: ?0, $options:'i'} } }",
+            "{'$group': { '_id' : '$brand' } }"
+    })
+    List<String> getAllBrands(List<String> categories, String search);
+
+    @Aggregation(pipeline = {
+            "{'$match': { brand : { '$in' : ?0 } } }", "{ '$match': { 'name': {$regex: ?0, $options:'i'} } }",
+            "{'$group': { '_id' : '$category' } }" })
+    List<String> getAllCategories(List<String> brands, String search);
 }

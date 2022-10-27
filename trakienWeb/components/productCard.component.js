@@ -22,6 +22,7 @@ export default class TaskCard extends React.Component {
       <Card sx={{ m: 1, minWidth: 220 }}>
         <CardHeader
           title={"Name: " + this.props.name}
+          subheader={"Brand: " + this.props.brand}
           titleTypographyProps={{ align: "left" }}
           subheaderTypographyProps={{
             align: "left",

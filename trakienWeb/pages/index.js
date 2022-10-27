@@ -24,9 +24,7 @@ export default function App() {
       <Pricing />
       <Contact />
       <Footer />
-    </div>
-    </div>
-  );
+    </div>);
 }
 
 
