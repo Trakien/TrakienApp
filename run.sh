@@ -11,4 +11,8 @@ cd ..
 cd trakienCustomerAPI/
 mvn package
 cd ..
+cd trakienWeb/
+npm install
+npm run build
+cd ..
 docker-compose up -d --build
