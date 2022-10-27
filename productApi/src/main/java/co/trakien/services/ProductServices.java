@@ -26,4 +26,10 @@ public interface ProductServices {
 
     List<String> getAllCategories();
 
+    List<String> getAllBrands(List<String> category, String search);
+
+    List<String> getAllCategories(List<String> brands, String search);
+
+    List<Product> getAllFilter(String search, List<String> brands, List<String> category);
+
 }
