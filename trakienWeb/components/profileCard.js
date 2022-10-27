@@ -1,8 +1,5 @@
 import React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardHeader from "@mui/material/CardHeader";
-import Typography from "@mui/material/Typography";
+import { Card, Grid, Text, Button, Row } from "@nextui-org/react";
 
 export default class CustomerCard extends React.Component {
   constructor(props) {
@@ -10,32 +7,26 @@ export default class CustomerCard extends React.Component {
   }
   render() {
     return (
-      <Card sx={{ m: 1, minWidth: 220 }}>
-        <CardHeader
-          title={"Name: " + this.props.name}
-          titleTypographyProps={{ align: "center" }}
-          subheaderTypographyProps={{
-            align: "left",
-          }}
-          sx={{
-            backgroundColor: (theme) =>
-              theme.palette.mode === "light"
-                ? theme.palette.grey[200]
-                : theme.palette.grey[700],
-          }}
-        />
-        <CardContent>
-            <Typography component="h3" variant="h4" align="center">
-                Last Name: {this.props.lastName}
-            </Typography>
-            <Typography component="h3" variant="h4" align="right">
-                Email: {this.props.email}
-            </Typography>
-            <Typography component="h3" variant="h4" align="right">
-                With us since: {this.props.createdAt}
-            </Typography>
-        </CardContent>
-      </Card>
+      <Grid.Container gap={2} justify="center">
+      <Grid sm={12} md={5}>
+        <Card css={{ mw: "630px" }}>
+          <Card.Header>
+            <Text b >{"Name: " + this.props.name}</Text>
+          </Card.Header>
+          <Card.Divider />
+          <Card.Body css={{ py: "$10" }}>
+            <Text>
+              Last Name: {this.props.lastName}
+              <br></br>
+              Email: {this.props.email}
+              <br></br>
+              With us since: {this.props.createdAt}
+            </Text>
+          </Card.Body>
+          <Card.Divider />
+        </Card>
+      </Grid>
+     </Grid.Container>
     );
   }
 }
