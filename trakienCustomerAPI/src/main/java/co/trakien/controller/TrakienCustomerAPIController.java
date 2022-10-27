@@ -2,6 +2,7 @@ package co.trakien.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.security.RolesAllowed;
 
@@ -45,6 +46,12 @@ public class TrakienCustomerAPIController {
         Customer customer = customerService.findById(id);
         return ResponseEntity
                 .ok((customer != null) ? customer.toCustomerDTO() : null);
+    }
+
+    @GetMapping("/{email}")
+    public ResponseEntity<CustomerDto> findByEmail(@PathVariable String email) {
+        Optional<Customer> customer = customerService.findByEmail(email);
+        return ResponseEntity.ok((customer.isPresent()) ? customer.get().toCustomerDTO() : null);
     }
 
     /**
