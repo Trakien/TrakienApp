@@ -5,7 +5,9 @@ import CardHeader from "@mui/material/CardHeader";
 import Typography from "@mui/material/Typography";
 
 export default class CustomerCard extends React.Component {
-  
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <Card sx={{ m: 1, minWidth: 220 }}>
@@ -28,7 +30,10 @@ export default class CustomerCard extends React.Component {
             </Typography>
             <Typography component="h3" variant="h4" align="right">
                 Email: {this.props.email}
-          </Typography>
+            </Typography>
+            <Typography component="h3" variant="h4" align="right">
+                With us since: {this.props.createdAt}
+            </Typography>
         </CardContent>
       </Card>
     );

@@ -29,7 +29,12 @@ const UserProfilePage = (ctx) => {
     return (
         <div className="container">
             <h1 className="title">Profile</h1>
-            <div>{JSON.stringify(data)}</div>
+            <ProfileCard
+                name={data.name}
+                lastName={data.lastName}
+                email={data.email}
+                createdAt={data.createdAt}
+            />
         </div>
     )
 }
