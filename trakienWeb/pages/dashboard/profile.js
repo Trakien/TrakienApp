@@ -1,46 +1,35 @@
-import { getValue } from "@mui/system";
-import {getSession} from "next-auth/client";
-import CustomerCard from "../../components/profileCard";
+import { useEffect, useState } from "react";
+import Cookies from "universal-cookie";
+import ProfileCard from "../../components/profileCard";
 
-export const getServerSideProps = async (ctx) => {
-    try {
-        const session = await getSession({req: ctx.req});
-        if (session) {
-            return {
-                props: {
-                    session
-                }
+const cookies = new Cookies();
+
+const UserProfilePage = (ctx) => {
+    const email = cookies.get("email");
+    const token = cookies.get("token");
+    const [data, setData] = useState(null)
+    function getCustomer(email) {
+        fetch("http://localhost:81/api/v2/customers/email/" + email, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + token
             }
-        }else{
-            return{
-                redirect: {
-                    destination: '/login',
-                    permanent: false
-                }
-            }
-        }
-    } catch (error) {
-        return{
-            redirect: {
-                destination: '/',
-                permanent: false
-            }
-        }
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                setData(data);
+            })
     }
-}
 
-const UserProfilePage = ({
-    session
-}) => {
-    const customer = getValue(session, ["customer"], null);
+    useEffect(() => {
+        getCustomer(email);
+    }, []);
     return (
         <div className="container">
             <h1 className="title">Profile</h1>
-            <CustomerCard>
-                name = {customer.name}
-                lastName = {customer.lastName}
-                email = {customer.email}
-            </CustomerCard>
+            <div>{JSON.stringify(data)}</div>
         </div>
     )
 }

@@ -48,7 +48,7 @@ public class TrakienCustomerAPIController {
                 .ok((customer != null) ? customer.toCustomerDTO() : null);
     }
 
-    @GetMapping("/{email}")
+    @GetMapping("/email/{email}")
     public ResponseEntity<CustomerDto> findByEmail(@PathVariable String email) {
         Optional<Customer> customer = customerService.findByEmail(email);
         return ResponseEntity.ok((customer.isPresent()) ? customer.get().toCustomerDTO() : null);
