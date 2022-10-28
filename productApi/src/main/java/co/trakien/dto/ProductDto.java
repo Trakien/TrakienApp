@@ -20,17 +20,20 @@ public class ProductDto {
     private String ref;
     private String name;
     private String category;
+    private String brand;
     private String updateDates;
     private String stores;
 
     public ProductDto() {
     }
 
-    public ProductDto(String id, String ref, String name, String category, String updateDates, String stores) {
+    public ProductDto(String id, String ref, String name, String category, String brand, String updateDates,
+            String stores) {
         this.id = id;
         this.ref = ref;
         this.name = name;
         this.category = category;
+        this.brand = brand;
         this.updateDates = updateDates;
         this.stores = stores;
     }
@@ -101,6 +104,15 @@ public class ProductDto {
         }.getType();
         List<Store> storeList = gson.fromJson(stores, tipoListaStores);
 
-        return new Product(id, ref, name, category, updateDatesList, storeList);
+        return new Product(id, ref, name, category, brand, updateDatesList, storeList);
     }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
 }

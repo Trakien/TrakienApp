@@ -55,7 +55,7 @@ public class KKKScraper extends ApiController {
     public HttpResponse<String> getData(int product) throws IOException, InterruptedException {
         String json = new StringBuilder()
                 .append("{")
-                .append("\"url\":\"" + url + "\",")
+                .append("\"name\":\"" + name + "\",")
                 .append("\"product\":\"" + product + "\"")
                 .append("}").toString();
         HttpClient client = HttpClient.newHttpClient();

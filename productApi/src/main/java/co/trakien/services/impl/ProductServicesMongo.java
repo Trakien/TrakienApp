@@ -73,4 +73,19 @@ public class ProductServicesMongo implements ProductServices {
         return productRepository.getAllCategories();
     }
 
+    @Override
+    public List<String> getAllBrands(List<String> category, String search) {
+        return productRepository.getAllBrands(category, search);
+    }
+
+    @Override
+    public List<String> getAllCategories(List<String> brands, String search) {
+        return productRepository.getAllCategories(brands, search);
+    }
+
+    @Override
+    public List<Product> getAllFilter(String search, List<String> brands, List<String> category) {
+        return productRepository.getAllFilter(search, brands, category);
+    }
+
 }
