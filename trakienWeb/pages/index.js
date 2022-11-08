@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styles/landingPage/flexboxgrid.module.css";
+import Purpose from "../components/Sections/Prupose";
 
 export default function App() {
   return (
@@ -18,16 +19,17 @@ export default function App() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-          href="https://fonts.googleapis.com/css2?family=Khula:wght@400;600;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
           rel="stylesheet"
         />
       </Helmet>
       <div>
         <TopNavbar />
         <Header />
-        <Services />
-        <Pricing />
         <Contact />
+        <Services />
+        <Purpose />
+        <Pricing />
         <Footer />
       </div>
     </div>

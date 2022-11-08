@@ -4,9 +4,10 @@ import { Link } from "react-scroll";
 // Components
 import Backdrop from "../Elements/Backdrop";
 // Assets
-import LogoIcon from "../../assets/svg/Logo";
+import LogoIcon from "../Elements/Logo";
 import BurgerIcon from "../../assets/svg/BurgerIcon";
 import { Component } from "react";
+import Trakienicon from "../Elements/Trakienicon.component";
 
 export default function TopNavbar() {
   const [y, setY] = useState();
@@ -25,32 +26,58 @@ export default function TopNavbar() {
 
   return (
     <>
-      <Wrapper className="flexCenter animate whiteBg" style={y > 100 ? { height: "60px" } : { height: "80px" }}>
+      <Wrapper
+        className="flexCenter animate whiteBg"
+        style={y > 100 ? { height: "60px" } : { height: "80px" }}
+      >
         <NavInner className="container flexSpaceCenter">
-          <Link className="pointer flexNullCenter" to="home" smooth={true}>
-            <LogoIcon />
-            <h1 style={{ marginLeft: "15px" }} className="font20 extraBold">
-              Trakien
-            </h1>
-          </Link>
+          <Trakienicon />
           <UlWrapper className="flexNullCenter">
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="home" spy={true} smooth={true} offset={-80}>
+              <Link
+                activeClass="active"
+                style={{ padding: "10px 15px" }}
+                to="home"
+                spy={true}
+                smooth={true}
+                offset={-80}
+              >
                 Home
               </Link>
             </li>
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="services" spy={true} smooth={true} offset={-80}>
+              <Link
+                activeClass="active"
+                style={{ padding: "10px 15px" }}
+                to="services"
+                spy={true}
+                smooth={true}
+                offset={-80}
+              >
                 Servicios
               </Link>
             </li>
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="pricing" spy={true} smooth={true} offset={-80}>
+              <Link
+                activeClass="active"
+                style={{ padding: "10px 15px" }}
+                to="pricing"
+                spy={true}
+                smooth={true}
+                offset={-80}
+              >
                 Premium
               </Link>
             </li>
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="contact" spy={true} smooth={true} offset={-80}>
+              <Link
+                activeClass="active"
+                style={{ padding: "10px 15px" }}
+                to="contact"
+                spy={true}
+                smooth={true}
+                offset={-80}
+              >
                 Quienes somos
               </Link>
             </li>
@@ -62,7 +89,11 @@ export default function TopNavbar() {
               </a>
             </li>
             <li className="semiBold font15 pointer flexCenter">
-              <a href="/signup" className="radius8 lightBg" style={{ padding: "10px 15px" }}>
+              <a
+                href="/signup"
+                className="radius8 lightBg"
+                style={{ padding: "10px 15px" }}
+              >
                 Sign up
               </a>
             </li>
@@ -83,7 +114,7 @@ const Wrapper = styled.nav`
 const NavInner = styled.div`
   position: relative;
   height: 100%;
-`
+`;
 const BurderWrapper = styled.button`
   outline: none;
   border: 0px;
@@ -106,5 +137,3 @@ const UlWrapperRight = styled.ul`
     display: none;
   }
 `;
-
-

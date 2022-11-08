@@ -79,9 +79,6 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
   vertical-align: baseline;
   box-sizing: border-box;
 }
@@ -120,20 +117,19 @@ table {
 }
 a {
   text-decoration: none !important;
-  color: #0b093b;
+  color: #231757;
 }
 a:hover {
-  color: #7620ff;
+  color: #000;
 }
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 50px #fff inset; /* Change the color to your own background color */
   box-shadow: transparent;
-  -webkit-text-fill-color: #fff;
 }
 body {
   background: #fff;
-  color: #0b093b;
-  font-family: "Khula", sans-serif;
+  color: #231757;
+  font-family: "Inter", sans-serif;
   overflow-x: hidden;
   font-size: 16px;
   font-weight: 400;
@@ -185,8 +181,8 @@ body {
   width: 100%;
 }
 .active {
-  border-bottom: 2px solid #7620ff;
-  color: #7620ff;
+  border-bottom: 2px solid #4630aa;
+  color: #4630aa;
 }
 .tag {
   padding: 5px 10px;
@@ -302,10 +298,10 @@ body {
 }
 /* COLORS */
 .darkColor {
-  color: #0b093b;
+  color: #231757;
 }
 .purpleColor {
-  color: #7620ff;
+  color: #4630aa;
 }
 .orangeColor {
   color: #f2b300;
@@ -327,16 +323,17 @@ body {
 }
 /* BACKGROUNDS */
 .darkBg {
-  background-color: #0b093b;
+  background-color: #231757;
 }
 .purpleBg {
-  background-color: #7620ff;
+  background-color: #4630aa;
 }
 .orangeBg {
   background-color: #f2b300;
 }
 .lightBg {
-  background-color: #30036690;
+  background-color: #4630aa;
+  color: whitesmoke;
 }
 .coralBg {
   background-color: #c4ffff;

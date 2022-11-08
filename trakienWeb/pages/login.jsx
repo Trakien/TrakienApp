@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
-import Email_Password_Fields from "../components/Email-Password.component";
+import Email_Password_Fields from "../components/Profile/Email-Password.component";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import RedirecTag from "../components/RedirectTag.component";
+import RedirecTag from "../components/Elements/RedirectTag.component";
 import Cookies from "universal-cookie";
 import Router from "next/router";
+import Link from "next/link";
+import style from "../styles/Elements/login.module.css";
 
 const cookies = new Cookies();
 
@@ -41,42 +43,53 @@ const SignIn = (props) => {
       });
   };
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <Box
-          sx={{
-            marginTop: 10,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
+    <>
+      <ThemeProvider theme={theme}>
+        <Container component="main" maxWidth="xs">
           <Box
-            component="form"
-            onSubmit={handleSubmit}
-            noValidate
-            sx={{ mt: 1 }}
+            sx={{
+              marginTop: 10,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
           >
-            <Email_Password_Fields></Email_Password_Fields>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+            <Link href="/">
+              <img
+                className={style.img}
+                src="/home/logoTrakien.png"
+                alt="trakienLogo"
+              ></img>
+            </Link>
+            <Typography component="h1" variant="h5">
+              Sign in
+            </Typography>
+            <Box
+              component="form"
+              onSubmit={handleSubmit}
+              noValidate
+              sx={{ mt: 1 }}
             >
-              Sign In
-            </Button>
-            <RedirecTag
-              info="Eres nuevo? Creemos una nueva cuenta"
-              redirectUrl="/signup"
-            ></RedirecTag>
+              <Email_Password_Fields></Email_Password_Fields>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                style={{ backgroundColor: "#4630aa" }}
+              >
+                Sign In
+              </Button>
+              <RedirecTag
+                info="Eres nuevo? Creemos una nueva cuenta"
+                redirectUrl="/signup"
+                color="#4630aa"
+              ></RedirecTag>
+            </Box>
           </Box>
-        </Box>
-      </Container>
-    </ThemeProvider>
+        </Container>
+      </ThemeProvider>
+    </>
   );
 };
 export default SignIn;

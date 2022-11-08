@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-scroll";
 // Assets
 import CloseIcon from "../../assets/svg/CloseIcon";
-import LogoIcon from "../../assets/svg/Logo";
+import LogoIcon from "../Elements/Logo";
 
 export default function Sidebar({ sidebarOpen, toggleSidebar }) {
   return (
@@ -15,7 +15,10 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             Trakien
           </h1>
         </div>
-        <CloseBtn onClick={() => toggleSidebar(!sidebarOpen)} className="animate pointer">
+        <CloseBtn
+          onClick={() => toggleSidebar(!sidebarOpen)}
+          className="animate pointer"
+        >
           <CloseIcon />
         </CloseBtn>
       </SidebarHeader>
@@ -108,12 +111,20 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
       </UlStyle>
       <UlStyle className="flexSpaceCenter">
         <li className="semiBold font15 pointer">
-          <a href="/" style={{ padding: "10px 30px 10px 0" }} className="whiteColor">
+          <a
+            href="/"
+            style={{ padding: "10px 30px 10px 0" }}
+            className="whiteColor"
+          >
             Log in
           </a>
         </li>
         <li className="semiBold font15 pointer flexCenter">
-          <a href="/" className="radius8 lightBg" style={{ padding: "10px 15px" }}>
+          <a
+            href="/"
+            className="radius8 lightBg"
+            style={{ padding: "10px 15px" }}
+          >
             Get Started
           </a>
         </li>

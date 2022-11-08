@@ -4,9 +4,9 @@ import Pagination from "@mui/material/Pagination";
 import { useState, useEffect } from "react";
 import Cookies from "universal-cookie";
 import styles from "../../styles/dashboard/Products.module.css";
-import MultipleFilter from "../../components/multipleFilter.component";
-import SearchFilter from "../../components/searchFilter.component";
-import AllProducts from "../../components/allProducts.component";
+import MultipleFilter from "../../components/Products/multipleFilter.component";
+import SearchFilter from "../../components/Products/searchFilter.component";
+import AllProducts from "../../components/charts.component";
 
 export default function Products() {
   const cookies = new Cookies();

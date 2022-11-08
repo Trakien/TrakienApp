@@ -8,6 +8,7 @@ class RedirecTag extends Component {
     this.state = {
       redirectUrl: props.redirectUrl,
       information: props.info,
+      color: props.color,
     };
   }
 
@@ -15,7 +16,12 @@ class RedirecTag extends Component {
     return (
       <Grid container justifyContent="flex-end">
         <Grid item>
-          <Link href={this.state.redirectUrl} variant="body2">
+          <Link
+            style={{
+              color: this.state.color,
+            }}
+            href={this.state.redirectUrl}
+          >
             {this.state.information}
           </Link>
         </Grid>

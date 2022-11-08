@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
-import ProfileCard from "../../components/profileCard";
+import ProfileCard from "../components/Profile/profileCard.component";
 
 const cookies = new Cookies();
 
@@ -30,10 +30,10 @@ const UserProfilePage = (ctx) => {
     <div className="container">
       <h1 className="title">Profile</h1>
       <ProfileCard
-        name={data.name}
-        lastName={data.lastName}
-        email={data.email}
-        createdAt={data.createdAt}
+        name={"juan"}
+        lastName={"orpina"}
+        email={"cal"}
+        createdAt={"Add"}
       />
     </div>
   );

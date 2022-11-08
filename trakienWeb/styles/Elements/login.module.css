@@ -1,0 +1,9 @@
+.img {
+  display: inline-flex;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  cursor: pointer;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
