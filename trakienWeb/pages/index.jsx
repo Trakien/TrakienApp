@@ -11,8 +11,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styles/landingPage/flexboxgrid.module.css";
 import Purpose from "../components/Sections/Prupose";
-
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 export default function App() {
+  cookies.remove("token");
   return (
     <div>
       <Helmet>

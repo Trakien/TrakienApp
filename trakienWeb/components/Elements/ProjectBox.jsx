@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import style from "../../styles/Elements/ProjectBox.module.css"
 
 export default function ProjectBox({ img, title, text, action}) {

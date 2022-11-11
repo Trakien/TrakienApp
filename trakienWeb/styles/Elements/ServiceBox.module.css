@@ -1,0 +1,14 @@
+.WrapperServiceBox{
+    width: 100%;
+}
+.TitleStyleServiceBox{
+    width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+.SubtitleStyleServiceBox{
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
