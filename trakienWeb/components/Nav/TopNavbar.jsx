@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 import Cookies from "universal-cookie";
 import Trakienicon from "../Elements/Trakienicon.component";
 import style from "../../styles/Nav/TopNavbar.module.css";
-
+import FullButton from "../Buttons/FullButton";
 const cookies = new Cookies();
 
 export default function TopNavbar() {
@@ -91,13 +91,12 @@ export default function TopNavbar() {
                   </a>
                 </li>
                 <li className="semiBold font15 pointer flexCenter">
-                  <a
-                    href="/signup"
-                    className="radius8 lightBg"
-                    style={{ padding: "10px 15px" }}
-                  >
-                    Sign up
-                  </a>
+                  <FullButton
+                    title="Sign up"
+                    action={() => {
+                      location.href = "/signup";
+                    }}
+                  />
                 </li>
               </ul>
             </>
