@@ -8,7 +8,7 @@ import MonitorIcon from "../../assets/svg/Services/MonitorIcon";
 import BrowserIcon from "../../assets/svg/Services/BrowserIcon";
 import PrinterIcon from "../../assets/svg/Services/PrinterIcon";
 import CheckMark from "../../assets/svg/Checkmark";
-
+import style from "../../styles/Elements/PricingTable.module.css"
 export default function PricingTable({ icon, price, title, text,  offers, action }) {
   let getIcon;
 
@@ -31,7 +31,7 @@ export default function PricingTable({ icon, price, title, text,  offers, action
   }
 
   return (
-    <Wrapper className="whiteBg radius8 shadow">
+    <div className={style.WrapperPricingTable + " whiteBg radius8 shadow"}>
       <div className="flexSpaceCenter">
         {getIcon}
         <p className="font30 extraBold">{price}</p>
@@ -61,13 +61,6 @@ export default function PricingTable({ icon, price, title, text,  offers, action
       <div style={{ maxWidth: "120px", margin: "30px auto 0 auto" }}>
         <FullButton title="Buy" action={action} />
       </div>
-    </Wrapper>
+    </div>
   );
 }
-
-const Wrapper = styled.div`
-  width: 100%;
-  text-align: left;
-  padding: 20px 30px;
-  margin-top: 30px;
-`;

@@ -3,20 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-scroll";
 // Assets
 import LogoImg from "../Elements/Logo";
+import style from "../../styles/Sections/Footer.module.css";
 
-const Wrapper = styled.div`
-  width: 100%;
-`;
-const InnerWrapper = styled.div`
-  @media (max-width: 550px) {
-    flex-direction: column;
-  }
-`;
-const StyleP = styled.p`
-  @media (max-width: 550px) {
-    margin: 20px 0;
-  }
-`;
 
 export default function Contact() {
   const getCurrentYear = () => {
@@ -24,10 +12,10 @@ export default function Contact() {
   };
 
   return (
-    <Wrapper>
+    <div className={style.wrapperFooter}>
       <div className="darkBg">
         <div className="container">
-          <InnerWrapper
+          <div
             className="flexSpaceCenter"
             style={{ padding: "30px 0" }}
           >
@@ -45,11 +33,11 @@ export default function Contact() {
                 Trakien
               </h1>
             </Link>
-            <StyleP className="whiteColor font13">
+            <p className="whiteColor font13">
               © {getCurrentYear()} -{" "}
               <span className="purpleColor font13">Fanatic</span> All Right
               Reserved
-            </StyleP>
+            </p>
 
             <Link
               className="whiteColor animate pointer font13"
@@ -59,9 +47,9 @@ export default function Contact() {
             >
               Inicio
             </Link>
-          </InnerWrapper>
+          </div>
         </div>
       </div>
-    </Wrapper>
+    </div>
   );
 }

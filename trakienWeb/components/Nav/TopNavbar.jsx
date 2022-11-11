@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-scroll";
-// Components
-import Backdrop from "../Elements/Backdrop";
-// Assets
-import LogoIcon from "../Elements/Logo";
-import BurgerIcon from "../../assets/svg/BurgerIcon";
-import { Component } from "react";
 import Trakienicon from "../Elements/Trakienicon.component";
+import style from "../../styles/Nav/TopNavbar.module.css"
 
 export default function TopNavbar() {
   const [y, setY] = useState();
@@ -26,13 +21,13 @@ export default function TopNavbar() {
 
   return (
     <>
-      <Wrapper
-        className="flexCenter animate whiteBg"
+      <nav
+        className={style.WrapperTopNavbar + " flexCenter animate whiteBg" }
         style={y > 100 ? { height: "60px" } : { height: "80px" }}
       >
-        <NavInner className="container flexSpaceCenter">
+        <div className={style.NavInnerTopNavbar + " container flexSpaceCenter"}>
           <Trakienicon />
-          <UlWrapper className="flexNullCenter">
+          <ul className={style.UlWrapperTopNavbar + " flexNullCenter"}>
             <li className="semiBold font15 pointer">
               <Link
                 activeClass="active"
@@ -81,8 +76,8 @@ export default function TopNavbar() {
                 Quienes somos
               </Link>
             </li>
-          </UlWrapper>
-          <UlWrapperRight className="flexNullCenter">
+          </ul>
+          <ul className="flexNullCenter">
             <li className="semiBold font15 pointer">
               <a href="/login" style={{ padding: "10px 30px 10px 0" }}>
                 Log in
@@ -97,43 +92,10 @@ export default function TopNavbar() {
                 Sign up
               </a>
             </li>
-          </UlWrapperRight>
-        </NavInner>
-      </Wrapper>
+          </ul>
+        </div>
+      </nav>
     </>
   );
 }
 
-const Wrapper = styled.nav`
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-`;
-const NavInner = styled.div`
-  position: relative;
-  height: 100%;
-`;
-const BurderWrapper = styled.button`
-  outline: none;
-  border: 0px;
-  background-color: transparent;
-  height: 100%;
-  padding: 0 15px;
-  display: none;
-  @media (max-width: 760px) {
-    display: block;
-  }
-`;
-const UlWrapper = styled.ul`
-  display: flex;
-  @media (max-width: 760px) {
-    display: none;
-  }
-`;
-const UlWrapperRight = styled.ul`
-  @media (max-width: 760px) {
-    display: none;
-  }
-`;

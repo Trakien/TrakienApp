@@ -1,0 +1,20 @@
+.WrapperProjectBox{
+    width: 100%;
+  margin-top: 30px;
+
+}
+.imgProjectBox{
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+.h3ProjectBox{
+    padding-bottom: 10px;
+  }
+.ImgBtnProjectBox{
+    background-color: transparent;
+  border: 0px;
+  outline: none;
+  padding: 0px;
+  margin: 0px;
+}
