@@ -94,7 +94,10 @@ hgroup,
 menu,
 nav,
 section {
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  box-sizing: border-box;
 }
 ol,
 ul {
@@ -148,9 +151,8 @@ html{
 }
 .container {
   width: 100%;
-  max-width: 1220px;
   margin: 0 auto;
-  padding: 0px 30px;
+  padding: 0% 5%;
 }
 @media only screen and (max-width: 859px) {
   .container {

@@ -12,3 +12,7 @@
   max-width: 300px;
   margin: 0 auto;
 }
+.imageServiceBox{
+  width:100%;
+  max-width: 50px;
+}
