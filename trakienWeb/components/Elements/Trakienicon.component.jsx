@@ -27,8 +27,4 @@ const Trakienicon = (props) => {
     </>
   );
 };
-const NavInner = styled.div`
-  position: relative;
-  height: 100%;
-`;
 export default Trakienicon;
