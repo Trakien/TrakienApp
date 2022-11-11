@@ -116,11 +116,12 @@ table {
   border-spacing: 0;
 }
 a {
+  text-align: center;
   text-decoration: none !important;
-  color: #231757;
+  color: #4630aa;
 }
 a:hover {
-  color: #000;
+  color: #f0774a;
 }
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 50px #fff inset; /* Change the color to your own background color */

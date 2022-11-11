@@ -24,17 +24,11 @@ const UserProfilePage = (ctx) => {
   }
 
   useEffect(() => {
-    getCustomer(email);
+    //getCustomer(email);
   }, []);
   return (
     <div className="container">
-      <h1 className="title">Profile</h1>
-      <ProfileCard
-        name={"juan"}
-        lastName={"orpina"}
-        email={"cal"}
-        createdAt={"Add"}
-      />
+      <ProfileCard />
     </div>
   );
 };
