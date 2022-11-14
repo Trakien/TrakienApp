@@ -39,7 +39,11 @@ const SignIn = (props) => {
           path: "/",
           expires: new Date(datas.expirationDate),
         });
-        Router.push("/dashboard/products");
+        cookies.set("email", jsondata.email, {
+          path: "/",
+          expires: new Date(datas.expirationDate),
+        });
+        Router.push("/dashboard/profile");
       });
   };
   return (
