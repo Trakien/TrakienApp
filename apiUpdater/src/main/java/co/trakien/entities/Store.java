@@ -1,5 +1,6 @@
 package co.trakien.entities;
 
+import java.util.Date;
 import java.util.List;
 
 public class Store {
@@ -7,14 +8,16 @@ public class Store {
     private String name;
     private String url;
     private List<String> prices;
+    private List<Date> updateDates;
 
     public Store() {
     }
 
-    public Store(String name, String url, List<String> prices) {
+    public Store(String name, String url, List<String> prices, List<Date> updateDates) {
         this.name = name;
         this.url = url;
         this.prices = prices;
+        this.updateDates = updateDates;
     }
 
     public String getName() {
@@ -54,6 +57,26 @@ public class Store {
     @Override
     public boolean equals(Object store) {
         return ((Store) store).getName().equals(this.name);
+    }
+
+    public List<Date> getUpdateDates() {
+        return updateDates;
+    }
+
+    public void setUpdateDates(List<Date> updateDates) {
+        this.updateDates = updateDates;
+    }
+
+    public void addUpdateDate(Date updateDate) {
+        this.updateDates.add(updateDate);
+    }
+
+    public void addUpdateDates(List<Date> updateDates) {
+        this.updateDates.addAll(updateDates);
+    }
+
+    public void addPrices(List<String> prices) {
+        this.prices.addAll(prices);
     }
 
 }

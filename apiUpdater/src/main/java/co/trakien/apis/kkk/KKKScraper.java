@@ -55,7 +55,7 @@ public class KKKScraper extends ApiController {
     public HttpResponse<String> getData(int product) throws IOException, InterruptedException {
         String json = new StringBuilder()
                 .append("{")
-                .append("\"name\":\"" + name + "\",")
+                .append("\"url\":\"" + url + "\",")
                 .append("\"product\":\"" + product + "\"")
                 .append("}").toString();
         HttpClient client = HttpClient.newHttpClient();
@@ -76,7 +76,6 @@ public class KKKScraper extends ApiController {
         product.setBrand(object.getString("brand"));
         List<Date> updateDates = new ArrayList<>();
         updateDates.add(new Date());
-        product.setUpdateDates(updateDates);
         List<String> prices = new ArrayList<>();
         prices.add(object.getString("price"));
         List<Store> stores = new ArrayList<>();
@@ -84,7 +83,7 @@ public class KKKScraper extends ApiController {
                 url.indexOf(".com") + 4)
                 + "/p/"
                 + object.getString("id"),
-                prices);
+                prices, updateDates);
         stores.add(store);
         product.setStores(stores);
         return product;

@@ -56,11 +56,11 @@ public class UpdaterController {
     public ResponseEntity<List<Product>> save(@RequestHeader HttpHeaders token,
             @RequestParam(value = "store") String store,
             @RequestParam(value = "url") String url,
-            @RequestParam(value = "category") String category,
-            @RequestParam(value = "depuracion") boolean depuracion) {
+            @RequestParam(value = "category") String category) {
         statusCode = validToken(token.getFirst(HttpHeaders.AUTHORIZATION));
         if (statusCode == 200) {
-            return ResponseEntity.ok(productServices.save(store, url, category, depuracion));
+            System.out.println("store: " + store + " url: " + url + " category: " + category);
+            return ResponseEntity.ok(productServices.save(store, url, category));
         } else
             return ResponseEntity.status(statusCode).build();
     }
@@ -75,7 +75,11 @@ public class UpdaterController {
     }
 
     @PutMapping
-    public ResponseEntity<Boolean> updateAll(@RequestHeader HttpHeaders token) {
+    public ResponseEntity<Boolean> updateAll(@RequestHeader HttpHeaders token,
+            @RequestParam(value = "store") String store,
+            @RequestParam(value = "url") String url,
+            @RequestParam(value = "category") String category,
+            @RequestParam(value = "depuracion") boolean depuracion) {
         statusCode = validToken(token.getFirst(HttpHeaders.AUTHORIZATION));
         if (statusCode == 200) {
             try {

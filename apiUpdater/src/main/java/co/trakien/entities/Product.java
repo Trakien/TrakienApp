@@ -1,6 +1,5 @@
 package co.trakien.entities;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -13,29 +12,26 @@ public class Product {
     private String name;
     private String category;
     private String brand;
-    private List<Date> updateDates;
     private List<Store> stores;
 
     public Product() {
     }
 
-    public Product(String ref, String name, String category, String brand, List<Date> updateDates, List<Store> stores) {
+    public Product(String ref, String name, String category, String brand, List<Store> stores) {
         this.ref = ref;
         this.name = name;
         this.category = category;
         this.brand = brand;
-        this.updateDates = updateDates;
         this.stores = stores;
     }
 
-    public Product(String id, String ref, String name, String category, String brand, List<Date> updateDates,
+    public Product(String id, String ref, String name, String category, String brand,
             List<Store> stores) {
         this.id = id;
         this.ref = ref;
         this.name = name;
         this.category = category;
         this.brand = brand;
-        this.updateDates = updateDates;
         this.stores = stores;
     }
 
@@ -71,14 +67,6 @@ public class Product {
         this.category = category;
     }
 
-    public List<Date> getUpdateDates() {
-        return updateDates;
-    }
-
-    public void setUpdateDates(List<Date> updateDates) {
-        this.updateDates = updateDates;
-    }
-
     public List<Store> getStores() {
         return stores;
     }
@@ -108,8 +96,13 @@ public class Product {
         this.brand = brand;
     }
 
-    public void addUpdateDate(Date date) {
-        updateDates.add(date);
+    public Store getStore(String storeName) {
+        for (Store store : stores) {
+            if (store.getName().equals(storeName)) {
+                return store;
+            }
+        }
+        return null;
     }
 
 }

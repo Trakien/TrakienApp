@@ -35,8 +35,12 @@ public class ProductServicesMongo implements ProductServices {
         if (savedProduct != null) {
             product.setId(savedProduct.getId());
             Store store = product.getStores().get(0);
-            if (!savedProduct.existsStore(store.getName())) {
+            Store savedStore = savedProduct.getStore(store.getName());
+            if (savedStore == null) {
                 product.addStores(savedProduct.getStores());
+            } else {
+                store.addPrices(savedStore.getPrices());
+                store.addUpdateDates(savedStore.getUpdateDates());
             }
         }
         return productRepository.save(product);
@@ -86,7 +90,7 @@ public class ProductServicesMongo implements ProductServices {
     }
 
     @Override
-    public List<Product> save(String store, String url, String category, boolean depuracion) {
+    public List<Product> save(String store, String url, String category) {
         return saveAll(ApiController.identifyStore(store, url, category).getProducts(0));
     }
 

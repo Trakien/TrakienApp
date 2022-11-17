@@ -6,7 +6,7 @@ import co.trakien.entities.Product;
 
 public interface ProductServices {
 
-    List<Product> save(String store, String url, String category, boolean depuracion);
+    List<Product> save(String store, String url, String category);
 
     Product save(Product product);
 
