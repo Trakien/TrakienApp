@@ -76,7 +76,11 @@ public class Product {
     }
 
     public void addStores(List<Store> stores) {
-        this.stores.addAll(stores);
+        for (Store store : stores) {
+            if (!existsStore(store.getName())) {
+                this.stores.add(store);
+            }
+        }
     }
 
     public boolean existsStore(String storeName) {

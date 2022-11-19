@@ -34,11 +34,10 @@ public class ProductServicesMongo implements ProductServices {
         Product savedProduct = productRepository.findByRef(product.getRef()).orElse(null);
         if (savedProduct != null) {
             product.setId(savedProduct.getId());
+            product.addStores(savedProduct.getStores());
             Store store = product.getStores().get(0);
             Store savedStore = savedProduct.getStore(store.getName());
-            if (savedStore == null) {
-                product.addStores(savedProduct.getStores());
-            } else {
+            if (savedStore != null) {
                 store.addPrices(savedStore.getPrices());
                 store.addUpdateDates(savedStore.getUpdateDates());
             }
