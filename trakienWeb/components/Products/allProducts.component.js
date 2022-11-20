@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./productCard.component";
 import Box from "@mui/material/Box";
-import styles from "../styles/dashboard/Products.module.css";
+import styles from "../../styles/dashboard/Products.module.css";
 
 export default class AllProducts extends React.Component {
   constructor(props) {
@@ -10,19 +10,27 @@ export default class AllProducts extends React.Component {
   }
 
   getMin(data, opt) {
-    data = JSON.parse(data);
     let first = data[0];
-    let minPrice = first.prices[first.prices.length - 1];
+    let minPrice = first.prices[0];
     let minUrl = first.url;
     let minName = first.name;
+    let updateDate = new Date();
+
     data.map((unit) => {
-      if (unit.prices[unit.prices.length - 1] < minPrice) {
-        minPrice = unit.prices[unit.prices.length - 1];
+      if (unit.prices[0] < minPrice) {
+        minPrice = unit.prices[0];
         minUrl = unit.url;
         minName = unit.name;
+        updateDate = new Date(unit.updateDates.slice(1, -1).split(",")[0]);
       }
     });
-    return opt === "price" ? minPrice : opt === "url" ? minUrl : minName;
+    return opt === "price"
+      ? minPrice
+      : opt === "url"
+      ? minUrl
+      : opt === "date"
+      ? updateDate.toLocaleDateString("en-US")
+      : minName;
   }
 
   render() {
@@ -37,10 +45,11 @@ export default class AllProducts extends React.Component {
             <ProductCard
               name={product.name}
               brand={product.brand}
-              updateDates={product.updateDates.slice(1, -1).split(",")}
+              updateDates={this.getMin(product.stores, "date")}
               prices={this.getMin(product.stores, "price")}
               url={this.getMin(product.stores, "url")}
               minName={this.getMin(product.stores, "name")}
+              stores={product.stores}
               key={product.id}
             />
           ))}

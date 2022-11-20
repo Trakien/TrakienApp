@@ -43,7 +43,7 @@ const SignIn = (props) => {
           path: "/",
           expires: new Date(datas.expirationDate),
         });
-        Router.push("/dashboard/profile");
+        Router.push("/dashboard/products");
       });
   };
   return (

@@ -1,15 +1,6 @@
 package co.trakien.dto;
 
-import java.lang.reflect.Type;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import co.trakien.entities.Product;
 import co.trakien.entities.Store;
@@ -21,20 +12,18 @@ public class ProductDto {
     private String name;
     private String category;
     private String brand;
-    private String updateDates;
-    private String stores;
+    private List<Store> stores;
 
     public ProductDto() {
     }
 
-    public ProductDto(String id, String ref, String name, String category, String brand, String updateDates,
-            String stores) {
+    public ProductDto(String id, String ref, String name, String category, String brand,
+            List<Store> stores) {
         this.id = id;
         this.ref = ref;
         this.name = name;
         this.category = category;
         this.brand = brand;
-        this.updateDates = updateDates;
         this.stores = stores;
     }
 
@@ -70,41 +59,16 @@ public class ProductDto {
         this.ref = ref;
     }
 
-    public String getStores() {
+    public List<Store> getStores() {
         return stores;
     }
 
-    public void setStores(String stores) {
+    public void setStores(List<Store> stores) {
         this.stores = stores;
     }
 
-    public String getUpdateDates() {
-        return updateDates;
-    }
-
-    public void setUpdateDates(String updateDates) {
-        this.updateDates = updateDates;
-    }
-
     public Product toProduct() {
-        String replace = updateDates.replace("[", "");
-        String replace1 = replace.replace("]", "");
-        List<String> updateDatesListString = new ArrayList<String>(Arrays.asList(replace1.split(",")));
-        List<Date> updateDatesList = new ArrayList<Date>();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-MM-dd");
-        for (String string : updateDatesListString) {
-            try {
-                updateDatesList.add(simpleDateFormat.parse(string));
-            } catch (ParseException e) {
-                return null;
-            }
-        }
-        Gson gson = new Gson();
-        Type tipoListaStores = new TypeToken<List<Store>>() {
-        }.getType();
-        List<Store> storeList = gson.fromJson(stores, tipoListaStores);
-
-        return new Product(id, ref, name, category, brand, updateDatesList, storeList);
+        return new Product(id, ref, name, category, brand, stores);
     }
 
     public String getBrand() {

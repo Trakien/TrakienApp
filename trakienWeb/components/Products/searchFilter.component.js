@@ -3,7 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import React from "react";
-import styles from "../styles/dashboard/Products.module.css";
+import styles from "../../styles/dashboard/Products.module.css";
 
 export default class multipleFilter extends React.Component {
   constructor(props) {
@@ -22,7 +22,6 @@ export default class multipleFilter extends React.Component {
           <TextField
             id="search-bar"
             className="text"
-            s
             onChange={this.handleChange}
             label="Search by name"
             variant="outlined"

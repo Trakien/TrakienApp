@@ -2,8 +2,10 @@ package co.trakien.dto;
 
 public class LoginDto {
     String email;
-
     String password;
+
+    public LoginDto() {
+    }
 
     /**
      * This method creates a LoginDto

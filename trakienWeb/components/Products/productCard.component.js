@@ -10,12 +10,6 @@ import React from "react";
 export default class TaskCard extends React.Component {
   constructor(props) {
     super(props);
-    this.getLast = this.getLast.bind(this);
-  }
-
-  getLast(updateDates) {
-    let res = new Date(updateDates[updateDates.length - 1]);
-    return res.toLocaleDateString("en-US");
   }
 
   render() {
@@ -53,10 +47,10 @@ export default class TaskCard extends React.Component {
             </a>
           </Typography>
           <Typography component="h5" variant="h6" align="center">
-            <Charts name={this.props.name} />
+            <Charts name={this.props.name} stores={this.props.stores} />
           </Typography>
           <Typography component="h6" variant="h7" align="right">
-            Update Date: {this.getLast(this.props.updateDates)}
+            Update Date: {this.props.updateDates}
           </Typography>
         </CardContent>
       </Card>
