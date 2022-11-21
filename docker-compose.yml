@@ -48,6 +48,15 @@ services:
     links:
       - db
       - trakiencustomerapi
+  trakienweb:
+    environment:
+      - SECRET=admin
+    build:
+      context: ./trakienWeb
+      dockerfile: Dockerfile
+    container_name: trakienWeb
+    ports:
+      - 8080:3000
   webscraper:
     environment:
       - FLASK_APP=WebScrapingKKK.py

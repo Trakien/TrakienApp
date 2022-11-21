@@ -14,14 +14,14 @@ export default class AllProducts extends React.Component {
     let minPrice = first.prices[0];
     let minUrl = first.url;
     let minName = first.name;
-    let updateDate = new Date();
+    let updateDate = new Date(first.updateDates[0]);
 
     data.map((unit) => {
       if (unit.prices[0] < minPrice) {
         minPrice = unit.prices[0];
         minUrl = unit.url;
         minName = unit.name;
-        updateDate = new Date(unit.updateDates.slice(1, -1).split(",")[0]);
+        updateDate = new Date(unit.updateDates[0]);
       }
     });
     return opt === "price"

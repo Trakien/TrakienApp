@@ -3,11 +3,14 @@ import styled from "styled-components";
 import { Link } from "react-scroll";
 import Cookies from "universal-cookie";
 import Trakienicon from "../Elements/Trakienicon.component";
+import UserIcon from "../Elements/UserIcon.component"
 import style from "../../styles/Nav/TopNavbar.module.css";
 import FullButton from "../Buttons/FullButton";
+import Logout from "../Elements/Logout";
+
 const cookies = new Cookies();
 
-export default function TopNavbar() {
+export default function TopNavbar(props) { 
   const token = cookies.get("token");
   const [y, setY] = useState();
   const [sidebarOpen, toggleSidebar] = useState(false);
@@ -30,8 +33,8 @@ export default function TopNavbar() {
         style={y > 100 ? { height: "60px" } : { height: "80px" }}
       >
         <div className={style.NavInnerTopNavbar + " container flexSpaceCenter"}>
-          <Trakienicon home={token} />
-          {token == undefined ? (
+          <Trakienicon home={props.home} />
+          {props.home ? (
             <>
               {" "}
               <ul className={style.UlWrapperTopNavbar + " flexNullCenter"}>
@@ -101,7 +104,10 @@ export default function TopNavbar() {
               </ul>
             </>
           ) : (
-            <></>
+            <>
+              <UserIcon route={props.route}/>
+              <Logout/>
+            </>
           )}
         </div>
       </nav>

@@ -50,7 +50,6 @@ export default function Products() {
   }
 
   function getBackendFiltered(route, setter) {
-    console.log("filter " + route);
     const brandPost = brandFilter.length > 0 ? brandFilter : brands;
     const categoryPost =
       categoryFilter.length > 0 ? categoryFilter : categories;
@@ -118,16 +117,12 @@ export default function Products() {
   }
 
   useEffect(() => {
-    console.log("preBrands:");
-    console.log(brands);
-    console.log("preCategories:");
-    console.log(categories);
-    if (brandFilter.length == 0 || searchQuery != "") {
+    if (brandFilter.length == 0 && searchQuery == "") {
       getBackend("categories", 1);
     } else {
       getBackendFiltered("categories", 1);
     }
-    if (categoryFilter.length == 0 || searchQuery != "") {
+    if (categoryFilter.length == 0 && searchQuery == "") {
       getBackend("brands", 2);
     } else {
       getBackendFiltered("brands", 2);
@@ -136,8 +131,6 @@ export default function Products() {
 
   useEffect(() => {
     actionFilterProducts();
-    console.log(brands);
-    console.log(categories);
   }, [searchQuery, brandFilter, categoryFilter, brands, categories]);
 
   useEffect(() => {}, [products]);
@@ -147,7 +140,7 @@ export default function Products() {
   return (
     <div className="container">
       <title>Products</title>
-      <TopNavbar />
+      <TopNavbar route="profile" home={false} />
       <main>
         <Box className={styles.content}>
           <h1 className="title">Products</h1>
@@ -173,10 +166,17 @@ export default function Products() {
             count={totalPages}
             page={page}
             onChange={handleChangePage}
-            size="large"
+            size="medium"
             className={styles.pagination}
           />
           <AllProducts products={products} page={page - 1} items={items} />
+          <Pagination
+            count={totalPages}
+            page={page}
+            onChange={handleChangePage}
+            size="medium"
+            className={styles.pagination}
+          />
         </Box>
       </main>
     </div>

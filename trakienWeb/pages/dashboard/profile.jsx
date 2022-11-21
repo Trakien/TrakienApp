@@ -35,7 +35,7 @@ const UserProfilePage = () => {
       ) : (
         <>
           {" "}
-          <TopNavbar />
+          <TopNavbar route="products" home={false} />
           <ProfileCard customer={customer} />
         </>
       )}

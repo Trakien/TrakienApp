@@ -13,7 +13,7 @@ export default function ProfileSubscriptionInfo(props) {
       <Grid item xs={7}>
         <Box>
           <div className={style.divmember}>
-            <div>Mienbro desde: {props.since}</div>
+            <div>Miembro desde: {props.since}</div>
           </div>
         </Box>
       </Grid>

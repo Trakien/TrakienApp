@@ -46,7 +46,12 @@ export default class TaskCard extends React.Component {
               </IconButton>
             </a>
           </Typography>
-          <Typography component="h5" variant="h6" align="center">
+          <Typography
+            component="h5"
+            variant="h6"
+            align="center"
+            margin="0 0 4% 0"
+          >
             <Charts name={this.props.name} stores={this.props.stores} />
           </Typography>
           <Typography component="h6" variant="h7" align="right">
