@@ -12,3 +12,8 @@
 .UlWrapperTopNavbar {
   display: flex;
 }
+
+.dashboard {
+  position: relative;
+  justify-content: flex-end;
+}

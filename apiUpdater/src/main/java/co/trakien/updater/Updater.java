@@ -37,8 +37,8 @@ public class Updater implements Callable<List<Product>> {
                     .getProducts(1).get(0).getStores().get(0).getPrices().get(0);
 
             store.addPrice(updatedPrice);
+            store.addUpdateDate(new Date());
         }
-        product.addUpdateDate(new Date());
         return productRepository.save(product);
     }
 

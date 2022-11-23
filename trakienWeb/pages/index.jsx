@@ -26,7 +26,7 @@ export default function App() {
         />
       </Helmet>
       <div>
-        <TopNavbar />
+        <TopNavbar home={true} />
         <Header />
         <Contact />
         <Services />

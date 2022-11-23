@@ -6,6 +6,7 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import Checkbox from "@mui/material/Checkbox";
 import FormControl from "@mui/material/FormControl";
 import React from "react";
+import styles from "../../styles/dashboard/Products.module.css";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -30,31 +31,29 @@ export default class multipleFilter extends React.Component {
 
   render() {
     return (
-      <div>
-        <FormControl sx={{ m: 1, width: 250 }}>
-          <InputLabel id="label">{this.props.name}</InputLabel>
-          <Select
-            labelId="label"
-            id="multiple-checkbox"
-            multiple
-            value={this.props.value}
-            onChange={this.handleChange}
-            input={<OutlinedInput label="Category" />}
-            renderValue={(selected) => selected.join(", ")}
-            MenuProps={MenuProps}
-          >
-            <MenuItem disabled value="">
-              <em>Select a {this.props.name}...</em>
+      <FormControl className={styles.filterObject}>
+        <InputLabel id="label">{this.props.name}</InputLabel>
+        <Select
+          labelId="label"
+          id="multiple-checkbox"
+          multiple
+          value={this.props.value}
+          onChange={this.handleChange}
+          input={<OutlinedInput label="Category" />}
+          renderValue={(selected) => selected.join(", ")}
+          MenuProps={MenuProps}
+        >
+          <MenuItem disabled value="">
+            <em>Select a {this.props.name}...</em>
+          </MenuItem>
+          {this.props.list.map((item) => (
+            <MenuItem key={item} value={item}>
+              <Checkbox checked={this.props.value.indexOf(item) > -1} />
+              <ListItemText primary={item} />
             </MenuItem>
-            {this.props.list.map((item) => (
-              <MenuItem key={item} value={item}>
-                <Checkbox checked={this.props.value.indexOf(item) > -1} />
-                <ListItemText primary={item} />
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </div>
+          ))}
+        </Select>
+      </FormControl>
     );
   }
 }

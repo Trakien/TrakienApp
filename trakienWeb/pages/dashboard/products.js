@@ -6,7 +6,8 @@ import Cookies from "universal-cookie";
 import styles from "../../styles/dashboard/Products.module.css";
 import MultipleFilter from "../../components/Products/multipleFilter.component";
 import SearchFilter from "../../components/Products/searchFilter.component";
-import AllProducts from "../../components/charts.component";
+import AllProducts from "../../components/Products/allProducts.component";
+import TopNavbar from "../../components/Nav/TopNavbar";
 
 export default function Products() {
   const cookies = new Cookies();
@@ -22,6 +23,7 @@ export default function Products() {
   const totalPages = Math.ceil(products.length / items);
 
   function getBackend(route, setter) {
+    console.log("normal " + route);
     if (token != null) {
       fetch(process.env.NEXT_PUBLIC_PRODUCTAPI + "/api/v2/filters/" + route, {
         method: "POST",
@@ -121,12 +123,12 @@ export default function Products() {
   }
 
   useEffect(() => {
-    if (brands.length == 0 || searchQuery != "") {
+    if (brandFilter.length == 0 && searchQuery == "") {
       getBackend("categories", 1);
     } else {
       getBackendFiltered("categories", 1);
     }
-    if (categories.length == 0 || searchQuery != "") {
+    if (categoryFilter.length == 0 && searchQuery == "") {
       getBackend("brands", 2);
     } else {
       getBackendFiltered("brands", 2);
@@ -139,14 +141,12 @@ export default function Products() {
 
   useEffect(() => {}, [products]);
 
-  useEffect(() => {
-    console.log(brands);
-    console.log(categories);
-  }, [brands, categories]);
+  useEffect(() => {}, [brands, categories]);
 
   return (
     <div className="container">
       <title>Products</title>
+      <TopNavbar route="profile" home={false} />
       <main>
         <Box className={styles.content}>
           <h1 className="title">Products</h1>
@@ -172,10 +172,17 @@ export default function Products() {
             count={totalPages}
             page={page}
             onChange={handleChangePage}
-            size="large"
+            size="medium"
             className={styles.pagination}
           />
           <AllProducts products={products} page={page - 1} items={items} />
+          <Pagination
+            count={totalPages}
+            page={page}
+            onChange={handleChangePage}
+            size="medium"
+            className={styles.pagination}
+          />
         </Box>
       </main>
     </div>
