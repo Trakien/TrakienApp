@@ -163,9 +163,40 @@ html{
   font-weight: 400 !important;
 }
 .logoIcon{
-  width: 10vw;
-  height: 10vh;
+  width: 15vw;
+  height: 15vh;
 
+}
+.LogoPrupose{
+  width: 30vw;
+
+}
+.titulo{
+  font-size: 4vw;
+  font-weight: 600;
+  color: #231757;
+  margin: 0 auto;
+  padding: 0 0 0 0;
+  margin-top: 2%;
+  margin-bottom: 2%;  
+}
+.subtitulo{
+  font-size: 2vw;
+  font-weight: 600;
+  color: #231757;
+  margin: 0 auto;
+  padding: 0 0 0 0;
+  margin-top: 2%;
+  margin-bottom: 2%;  
+}
+.tituloBlanco{
+  font-size: calc(15px + 4vw);
+  font-weight: 600;
+  color: #FFF;
+  margin: 0 auto;
+  padding: 0 0 0 0;
+  margin-top: 2%;
+  margin-bottom: 2%;  
 }
 .semiBold {
   font-weight: 600 !important;
@@ -246,7 +277,8 @@ html{
   font-size: 0.75rem;
 }
 .font13 {
-  font-size: 0.813rem;
+  font-size: 1.3vw;
+  text-align: justify;
 }
 .font14 {
   font-size: 0.875rem;

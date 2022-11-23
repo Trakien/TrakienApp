@@ -3,10 +3,9 @@ import React from "react";
 import ServiceBox from "../Elements/ServiceBox";
 import style from "../../styles/Sections/Contact.module.css";
 
-
 export default function Contact() {
   return (
-    <div id="services" className={style.wrapperContact}>
+    <div id="contact" className={style.wrapperContact}>
       <div className="lightBg" style={{ padding: "60px 0" }}>
         <div className="container">
           <div>
@@ -20,7 +19,7 @@ export default function Contact() {
                 subtitle="Somos una empresa que busca elevar el nivel de información brindada al cliente que desea realizar compras por internet mediante el aprovechamiento de tecnologías de punta y con el personal capacitado, brindando una interfaz amigable con el fin de ayudar a al comprador a encontrar, decidir y ahorrar en cualquier compra en línea.​"
               />
             </div>
-            <div className={style.ServiceBoxWrapperContact} >
+            <div className={style.ServiceBoxWrapperContact}>
               <ServiceBox
                 icon="vision"
                 title="Visión"

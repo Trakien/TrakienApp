@@ -13,6 +13,8 @@ width: 50%;
 }
 .pPrupose{
     max-width: 475px;
+    font-size: calc(14px + 0.5vw);
+    
   }
 .AddRightInnerPrupose{
  width: 100%;

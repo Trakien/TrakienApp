@@ -3,15 +3,17 @@ import style from "../../styles/Sections/Prupose.module.css";
 
 export default function Purpose() {
   return (
-    <section className = {style.wrapperPrupose} id="blog">
+    <section className={style.wrapperPrupose} id="blog">
       {" "}
       <div className="lightBg">
         <div className="container">
-          <div className={style.AdvertisingPrupose+" flexSpaceCenter"}>
+          <div className={style.AdvertisingPrupose + " flexSpaceCenter"}>
             <div className={style.AddLeftPrupose}>
-              <h4 className="font20 semiBold">Nuestro</h4>
-              <h2 className="font40 extraBold">Proposito</h2>
-              <p className={style.pPrupose+" font19"}>
+              <h4 className="tituloBlanco">Nuestro</h4>
+              <h2 className="tituloBlanco">Proposito</h2>
+              <br></br>
+              <br></br>
+              <p className={style.pPrupose}>
                 Elevar niveles de competitividad del comercio colombiano
                 mediante el montaje de una empresa para la prestación del
                 servicio de rastreo de precios en el mercado digital colombiano,
@@ -19,11 +21,13 @@ export default function Purpose() {
                 inconformismo por parte de los compradores y bajar los niveles
                 de especulación.​
               </p>
+              <br></br>
+              <br></br>
             </div>
             <div>
               <div className={style.AddRightInnerPrupose}>
                 <img
-                  className="radius8"
+                  className="LogoPrupose"
                   src="/home/proposito.png"
                   alt="trakienLogo"
                   style={{ zIndex: 9 }}

@@ -46,7 +46,7 @@ export default function ServiceBox({icon, title, subtitle}) {
 
   return (
     <div className={style.WrapperServiceBox + " flex flexColumn"}>
-      <div className={style.imageServiceBox}>{getIcon}</div>
+      {getIcon}
       <h2 className={style.TitleStyleServiceBox + " font20 extraBold"}>{title}</h2>
       <p className={style.SubtitleStyleServiceBox + " font13"}>{subtitle}</p>
     </div>

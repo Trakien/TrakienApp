@@ -11,7 +11,7 @@ export default function Services() {
       <div className="whiteBg" style={{ padding: "60px 0" }}>
         <div className="container">
           <div>
-            <h1 className="font40 extraBold">Nuestros servicios</h1>
+            <h1 className="titulo"><strong>Nuestros servicios</strong></h1>
             <p className="font13">
               Nuestro principal objetivo es ofrecer un servicio eficinte y
               dinamico a nuestros clientes para que puedan tomar las mejores
