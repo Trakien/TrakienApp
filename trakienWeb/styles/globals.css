@@ -162,6 +162,11 @@ html{
 .regular {
   font-weight: 400 !important;
 }
+.logoIcon{
+  width: 10vw;
+  height: 10vh;
+
+}
 .semiBold {
   font-weight: 600 !important;
 }
