@@ -25,7 +25,7 @@ const SignIn = (props) => {
       email: data.get("email"),
       password: data.get("password"),
     };
-    fetch("http://localhost:81/v2/auth", {
+    fetch(process.env.NEXT_PUBLIC_CUSTOMERAPI + "/v2/auth", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
