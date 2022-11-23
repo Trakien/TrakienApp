@@ -37,7 +37,7 @@ const SignUp = (props) => {
       lastName: data.get("lastName"),
       passwd: data.get("password"),
     };
-    fetch("http://localhost:81/api/v2/customers", {
+    fetch(process.env.NEXT_PUBLIC_CUSTOMERAPI + "/api/v2/customers", {
       method: "POST",
       mode: "cors",
       headers: {

@@ -2,19 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import style from "../../styles/Sections/Header.module.css";
 
-
-
-
-
-
-
 export default function Header() {
   return (
-    <section className={style.wrapperHeader + " container flexSpaceCenter"} id="home">
+    <section
+      className={style.wrapperHeader + " container flexSpaceCenter"}
+      id="home"
+    >
       <div className={style.LeftSideHeader + " flexCenter"}>
         <div>
           <h1 className="extraBold font60">Trakien</h1>
-          <div className={style.HeaderPHeader + " font17 semiBold "} >
+          <div className={style.HeaderPHeader + " font17 semiBold "}>
             Somos una empresa enfocada en el rastreo de precios dentro del
             mercado digital en Colombia, brindando a los usuarios y
             organizaciones, información oportuna y transparente de forma ágil
@@ -28,8 +25,9 @@ export default function Header() {
           className="radius8"
           src="/home/logoTrakien.png"
           alt="trakienLogo"
-          style={{ 
-          width: "100%"}}
+          style={{
+            width: "100%",
+          }}
         />
       </div>
     </section>

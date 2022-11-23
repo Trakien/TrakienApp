@@ -25,7 +25,7 @@ const SignIn = (props) => {
       email: data.get("email"),
       password: data.get("password"),
     };
-    fetch("http://localhost:81/v2/auth", {
+    fetch(process.env.NEXT_PUBLIC_CUSTOMERAPI + "/v2/auth", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,6 +36,10 @@ const SignIn = (props) => {
       .then((datas) => {
         settoken(datas.token);
         cookies.set("token", datas.token, {
+          path: "/",
+          expires: new Date(datas.expirationDate),
+        });
+        cookies.set("email", jsondata.email, {
           path: "/",
           expires: new Date(datas.expirationDate),
         });

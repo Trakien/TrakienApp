@@ -400,3 +400,27 @@ html{
 .whiteBg {
   background-color: ghostwhite;
 }
+
+.google-visualization-controls-rangefilter-thumblabel{
+  color:black !important;
+  font-size: 14px !important;
+}
+
+.google-visualization-controls-slider-horizontal{
+  border: none !important;
+  width: 18vw !important;
+  height: 1.2vh !important;   
+}
+
+.google-visualization-controls-slider-handle{
+  background-color: #5745a8 !important;
+}
+
+.google-visualization-controls-slider-thumb{
+  background-color: #4630aa !important;
+  border: 1px solid #342283 !important;   
+}
+
+.google-visualization-controls-rangefilter{
+  text-align: center;
+}

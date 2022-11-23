@@ -1,9 +1,28 @@
 .ProfileFile {
   margin: 1%;
   padding: 1%;
-  color: blueviolet;
+  color: #231757;
   text-align: center;
 }
 .UserdatosSection {
   border-style: none none inset none;
+}
+.section {
+  padding: 5%;
+  margin-top: 100px;
+}
+.ProfileSection {
+  border-style: none none groove none;
+  padding: 3%;
+}
+
+.divmember {
+  align-items: center;
+  color: #f0774a;
+  display: inline-flex;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-left: 20px;
+  padding: 5px 14px 5px 0;
+  text-align: center;
 }

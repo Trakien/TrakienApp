@@ -8,7 +8,7 @@ import style from "../../styles/Elements/nav.module.css";
 const Trakienicon = (props) => {
   return (
     <>
-      {props.home == undefined ? (
+      {props.home ? (
         <Link className="pointer flexNullCenter" to="home" smooth={true}>
           <LogoIcon />
           <h1 style={{ marginLeft: "15px" }} className="font20 extraBold">
@@ -16,13 +16,11 @@ const Trakienicon = (props) => {
           </h1>
         </Link>
       ) : (
-        <Link1 className="pointer flexNullCenter" href="/">
           <img
-            className={style.img}
+            className={style.imgIcon}
             src="/home/LogoTrakienSimple.png"
             alt="trakienLogo"
           ></img>
-        </Link1>
       )}
     </>
   );

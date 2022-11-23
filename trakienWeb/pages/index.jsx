@@ -13,8 +13,8 @@ import "../styles/landingPage/flexboxgrid.module.css";
 import Purpose from "../components/Sections/Prupose";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
+cookies.remove("token");
 export default function App() {
-  cookies.remove("token");
   return (
     <div>
       <Helmet>
@@ -26,7 +26,7 @@ export default function App() {
         />
       </Helmet>
       <div>
-        <TopNavbar />
+        <TopNavbar home={true} />
         <Header />
         <Contact />
         <Services />
