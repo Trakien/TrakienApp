@@ -4,18 +4,14 @@ import styled from "styled-components";
 import PricingTable from "../Elements/PricingTable";
 import style from "../../styles/Sections/Pricing.module.css";
 
-
-
-
-
 export default function Pricing() {
   return (
     <section className={style.wrapperPricing} id="pricing">
       <div className="whiteBg">
         <div className="container">
           <div className={style.HeaderInfoPricing}>
-            <h1 className="font40 extraBold">Premium</h1>
-            <p className="font25">
+            <h1 className="titulo">Premium</h1>
+            <p className="subtitulo">
               Con premium podrás disfrutar de todas las funcionalidades de
               Trakien.
               <br />

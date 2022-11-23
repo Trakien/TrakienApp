@@ -54,6 +54,18 @@ export default function TopNavbar(props) {
                   <Link
                     activeClass="active"
                     style={{ padding: "10px 15px" }}
+                    to="contact"
+                    spy={true}
+                    smooth={true}
+                    offset={-80}
+                  >
+                    Quienes somos
+                  </Link>
+                </li>
+                <li className="semiBold font15 pointer">
+                  <Link
+                    activeClass="active"
+                    style={{ padding: "10px 15px" }}
                     to="services"
                     spy={true}
                     smooth={true}
@@ -66,24 +78,24 @@ export default function TopNavbar(props) {
                   <Link
                     activeClass="active"
                     style={{ padding: "10px 15px" }}
-                    to="pricing"
+                    to="blog"
                     spy={true}
                     smooth={true}
                     offset={-80}
                   >
-                    Premium
+                    Proposito
                   </Link>
                 </li>
                 <li className="semiBold font15 pointer">
                   <Link
                     activeClass="active"
                     style={{ padding: "10px 15px" }}
-                    to="contact"
+                    to="pricing"
                     spy={true}
                     smooth={true}
                     offset={-80}
                   >
-                    Quienes somos
+                    Premium
                   </Link>
                 </li>
               </ul>
