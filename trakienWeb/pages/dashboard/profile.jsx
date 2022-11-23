@@ -10,14 +10,17 @@ const UserProfilePage = () => {
   const token = cookies.get("token");
   const [customer, setCustomer] = useState();
   async function getCustomer(email) {
-    await fetch("http://localhost:81/api/v2/customers/email/" + email, {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + token,
-      },
-    })
+    await fetch(
+      process.env.NEXT_PUBLIC_CUSTOMERAPI + "/api/v2/customers/email/" + email,
+      {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setCustomer(data);

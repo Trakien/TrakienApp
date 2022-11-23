@@ -25,7 +25,7 @@ export default function Products() {
   function getBackend(route, setter) {
     console.log("normal " + route);
     if (token != null) {
-      fetch("http://localhost:4599/api/v2/filters/" + route, {
+      fetch(process.env.NEXT_PUBLIC_PRODUCTAPI + "/api/v2/filters/" + route, {
         method: "POST",
         mode: "cors",
         headers: {
@@ -59,15 +59,21 @@ export default function Products() {
         brands: brandPost,
         categories: categoryPost,
       };
-      fetch("http://localhost:4599/api/v2/filters/" + route + "/filter", {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
-        },
-        body: JSON.stringify(filters),
-      })
+      fetch(
+        process.env.NEXT_PUBLIC_PRODUCTAPI +
+          "/api/v2/filters/" +
+          route +
+          "/filter",
+        {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+          body: JSON.stringify(filters),
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           switch (setter) {
@@ -98,7 +104,7 @@ export default function Products() {
         brands: brandPost,
         categories: categoryPost,
       };
-      fetch("http://localhost:4599/api/v2/filters/allFilter", {
+      fetch(process.env.NEXT_PUBLIC_PRODUCTAPI + "/api/v2/filters/allFilter", {
         method: "POST",
         mode: "cors",
         headers: {
