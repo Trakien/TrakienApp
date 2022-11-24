@@ -45,9 +45,9 @@ export default function Pricing() {
                 title="Plan Gratin"
                 text="Justo lo que necesitas de Trakien."
                 offers={[
-                  { name: "Monitoreo de precios", cheked: false },
+                  // { name: "Monitoreo de precios", cheked: false },
                   { name: "Estadisticas en tiempo real", cheked: true },
-                  { name: "Alertas personalizadas", cheked: false },
+                  // { name: "Alertas personalizadas", cheked: false },
                   {
                     name: "Acceso total al catalogo de productos",
                     cheked: true,
