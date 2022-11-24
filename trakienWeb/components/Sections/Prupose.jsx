@@ -5,12 +5,11 @@ export default function Purpose() {
   return (
     <section className={style.wrapperPrupose} id="blog">
       {" "}
-      <div className="lightBg">
+      <div className="lightBg container flexSpaceCenter">
         <div className="container">
-          <div className={style.AdvertisingPrupose + " flexSpaceCenter"}>
-            <div className={style.AddLeftPrupose}>
-              <h4 className="tituloBlanco">Nuestro</h4>
-              <h2 className="tituloBlanco">Proposito</h2>
+          <div className={style.AdvertisingPrupose + "flex"}>
+            <div className={style.AddLeftPrupose + "container"}>
+              <h4 className="tituloBlanco">Nuestro Proposito</h4>
               <br></br>
               <br></br>
               <p className={style.pPrupose}>
@@ -24,16 +23,15 @@ export default function Purpose() {
               <br></br>
               <br></br>
             </div>
-            <div>
-              <div className={style.AddRightInnerPrupose}>
-                <img
-                  className="LogoPrupose"
-                  src="/home/proposito.png"
-                  alt="trakienLogo"
-                  style={{ zIndex: 9 }}
-                />
-              </div>
-            </div>
+          </div>
+        </div>
+        <div>
+          <div className={style.AddRightInnerPrupose}>
+            <img
+              className="LogoPrupose"
+              src="/home/proposito.png"
+              alt="trakienLogo"
+            />
           </div>
         </div>
       </div>

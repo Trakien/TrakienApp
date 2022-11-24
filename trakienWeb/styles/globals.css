@@ -247,11 +247,25 @@ html{
 .flex {
   display: flex;
 }
+.flexPlan {
+  margin: 5vw;
+  width: 100%;
+}
 .flexSpaceCenter {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+.plansText{
+  font-size:calc(8px + 0.5vw);
+}
+.checkmark{
+  width: 2vw;
+}
+.tituloPlan{
+  font-size: calc(15px + 1vw);
+}
+
 .flexNullCenter {
   display: flex;
   align-items: center;
