@@ -9,14 +9,14 @@ export default function Purpose() {
         <div className="container">
           <div className={style.AdvertisingPrupose + "flex"}>
             <div className={style.AddLeftPrupose + "container"}>
-              <h4 className="tituloBlanco">Nuestro Proposito</h4>
+              <h4 className="tituloBlanco">Nuestro Propósito</h4>
               <br></br>
               <br></br>
               <p className={style.pPrupose}>
                 Elevar niveles de competitividad del comercio colombiano
                 mediante el montaje de una empresa para la prestación del
                 servicio de rastreo de precios en el mercado digital colombiano,
-                que permita elevar la fidelización de clientes, bajar niveles de
+                que permita elevar la fidelización de clientes, reducir niveles de
                 inconformismo por parte de los compradores y bajar los niveles
                 de especulación.​
               </p>

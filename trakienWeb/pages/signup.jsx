@@ -85,9 +85,6 @@ const SignUp = (props) => {
             <Avatar sx={{ m: 1, bgcolor: "#4630aa" }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign up
-            </Typography>
             <Box
               component="form"
               noValidate
@@ -102,7 +99,7 @@ const SignUp = (props) => {
                     required
                     fullWidth
                     id="firstName"
-                    label="First Name"
+                    label="Nombre"
                     autoFocus
                   />
                 </Grid>
@@ -111,7 +108,7 @@ const SignUp = (props) => {
                     required
                     fullWidth
                     id="lastName"
-                    label="Last Name"
+                    label="Apellido"
                     name="lastName"
                     autoComplete="family-name"
                   />
@@ -125,7 +122,7 @@ const SignUp = (props) => {
                 sx={{ mt: 3, mb: 2 }}
                 style={{ backgroundColor: "#4630aa" }}
               >
-                Sign Up
+                Registrarse
               </Button>
               <RedirecTag
                 info="Ya tienes una cuenta con nosotros? Ingresa"

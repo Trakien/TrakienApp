@@ -65,9 +65,6 @@ const SignIn = (props) => {
                 alt="trakienLogo"
               ></img>
             </Link>
-            <Typography component="h1" variant="h5">
-              Sign in
-            </Typography>
             <Box
               component="form"
               onSubmit={handleSubmit}
@@ -82,7 +79,7 @@ const SignIn = (props) => {
                 sx={{ mt: 3, mb: 2 }}
                 style={{ backgroundColor: "#4630aa" }}
               >
-                Sign In
+                Iniciar Sesión
               </Button>
               <RedirecTag
                 info="Eres nuevo? Creemos una nueva cuenta"

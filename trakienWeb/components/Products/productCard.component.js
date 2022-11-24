@@ -16,8 +16,8 @@ export default class TaskCard extends React.Component {
     return (
       <Card sx={{ m: 1, minWidth: 220 }}>
         <CardHeader
-          title={"Name: " + this.props.name}
-          subheader={"Brand: " + this.props.brand}
+          title={"Nombre: " + this.props.name}
+          subheader={"Marca: " + this.props.brand}
           titleTypographyProps={{ align: "left" }}
           subheaderTypographyProps={{
             align: "left",
@@ -36,10 +36,10 @@ export default class TaskCard extends React.Component {
             align="left"
             color="text.primary"
           >
-            Minimum Price: {this.props.prices}
+            Precio mínimo: {this.props.prices}
           </Typography>
           <Typography component="h5" variant="h6" align="left">
-            Store: {this.props.minName}
+            Tienda: {this.props.minName}
             <a href={this.props.url}>
               <IconButton aria-label="Link" color="secondary">
                 <LinkIcon />
@@ -55,7 +55,7 @@ export default class TaskCard extends React.Component {
             <Charts name={this.props.name} stores={this.props.stores} />
           </Typography>
           <Typography component="h6" variant="h7" align="right">
-            Update Date: {this.props.updateDates}
+            Fecha de actualización: {this.props.updateDates}
           </Typography>
         </CardContent>
       </Card>

@@ -39,7 +39,7 @@ export default class multipleFilter extends React.Component {
           multiple
           value={this.props.value}
           onChange={this.handleChange}
-          input={<OutlinedInput label="Category" />}
+          input={<OutlinedInput label={this.props.name} />}
           renderValue={(selected) => selected.join(", ")}
           MenuProps={MenuProps}
         >

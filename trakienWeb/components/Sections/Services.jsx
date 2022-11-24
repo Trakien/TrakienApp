@@ -13,12 +13,12 @@ export default function Services() {
           <div>
             <h1 className="titulo"><strong>Nuestros servicios</strong></h1>
             <p className="font13">
-              Nuestro principal objetivo es ofrecer un servicio eficinte y
-              dinamico a nuestros clientes para que puedan tomar las mejores
+              Nuestro principal objetivo es ofrecer un servicio eficiente y
+              dinámico a nuestros clientes para que puedan tomar las mejores
               decisiones
               <br />
               en el momento de realizar compras digitales, basadas en
-              trazabilidades realizadas a partir de informacion confiable.
+              trazabilidades realizadas a partir de información confiable.
             </p>
           </div>
           <div className="flex">
@@ -26,28 +26,28 @@ export default function Services() {
               <ServiceBox
                 icon="monitor"
                 title="Análisis de precios"
-                subtitle="El análisis de precios y comparación de los mismos en productos similares, le permitirá tomar decisiones mas asertivas al momento de comprar."
+                subtitle="El análisis de precios y comparación de los mismos en productos similares, le permitirá tomar decisiones más asertivas al momento de comprar."
               />
             </div>
             <div className={style.ServiceBoxWrapperServices}>
               <ServiceBox
                 icon="filtro"
                 title="Filtrador de productos"
-                subtitle="El filtrador de productos le permitirá encontrar los productos que usted necesita de una manera mas eficiente y rápida."
+                subtitle="El filtrador de productos le permitirá encontrar los productos que usted necesita de una manera más eficiente y rápida."
               />
             </div>
             <div className={style.ServiceBoxWrapperServices}>
               <ServiceBox
                 icon="printer"
                 title="Seguimiento de precios"
-                subtitle="Configure alertas de aumento de precio y sea notificado una vez el producto alcanza su limite."
+                subtitle="Configure alertas de aumento de precio y sea notificado una vez el producto alcanza su límite."
               />
             </div>
             <div className={style.ServiceBoxWrapperServices}>
               <ServiceBox
                 icon="monitor"
-                title="Trazabilidad grafica"
-                subtitle="Vizualice de manera sencilla y eficiente la variación en los precios de un producto a traves del tiempo."
+                title="Trazabilidad gráfica"
+                subtitle="Visualice de manera sencilla y eficiente la variación en los precios de un producto a través del tiempo."
               />
             </div>
           </div>
