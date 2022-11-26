@@ -17,6 +17,7 @@ cookies.remove("token");
 export default function App() {
   return (
     <div>
+      <title>Trakien</title>
       <Helmet>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

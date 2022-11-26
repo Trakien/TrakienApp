@@ -61,6 +61,7 @@ const SignUp = (props) => {
 
   return (
     <>
+      <title>Registrarse</title>
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <div>

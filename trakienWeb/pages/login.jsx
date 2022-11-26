@@ -48,6 +48,7 @@ const SignIn = (props) => {
   };
   return (
     <>
+      <title>Iniciar Sesión</title>
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <Box
