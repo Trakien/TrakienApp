@@ -2,9 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-scroll";
 // Assets
-import LogoImg from "../Elements/Logo";
+import LogoImg from "../Elements/LogoBlanco";
 import style from "../../styles/Sections/Footer.module.css";
-
 
 export default function Contact() {
   const getCurrentYear = () => {
@@ -15,10 +14,7 @@ export default function Contact() {
     <div className={style.wrapperFooter}>
       <div className="darkBg">
         <div className="container">
-          <div
-            className="flexSpaceCenter"
-            style={{ padding: "30px 0" }}
-          >
+          <div className="flexSpaceCenter" style={{ padding: "30px 0" }}>
             <Link
               className="flexCenter animate pointer"
               to="home"

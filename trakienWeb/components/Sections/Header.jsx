@@ -22,11 +22,11 @@ export default function Header() {
       </div>
       <div>
         <img
-          className="radius8"
+          className="imgHome"
           src="/home/logoTrakien.png"
           alt="trakienLogo"
           style={{
-            width: "100%",
+            width: "calc(17vh + 15vw)",
           }}
         />
       </div>

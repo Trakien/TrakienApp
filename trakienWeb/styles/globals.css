@@ -358,6 +358,9 @@ html{
 .radius8 {
   border-radius: 1rem;
 }
+.imgHome{
+  width: 120%;
+}
 .radius6 {
   border-radius: 0.6rem;
 }
