@@ -1,0 +1,14 @@
+.WrapperFullButton {
+  border: 1px solid #4630aa;
+  background-color: #4630aa;
+  padding: 15px;
+  outline: none;
+  font-weight: 600 !important;
+  font-size: 0.938rem;
+  color: #fff;
+}
+.WrapperFullButton:hover {
+  background-color: #f0774a;
+  border: 1px solid #f0774a;
+  color: #4630aa;
+}

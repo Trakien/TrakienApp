@@ -1,0 +1,19 @@
+.WrapperTopNavbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.NavInnerTopNavbar {
+  position: relative;
+  height: 100%;
+}
+.UlWrapperTopNavbar {
+  display: flex;
+}
+
+.dashboard {
+  position: relative;
+  justify-content: flex-end;
+}

@@ -8,8 +8,16 @@ import MonitorIcon from "../../assets/svg/Services/MonitorIcon";
 import BrowserIcon from "../../assets/svg/Services/BrowserIcon";
 import PrinterIcon from "../../assets/svg/Services/PrinterIcon";
 import CheckMark from "../../assets/svg/Checkmark";
-
-export default function PricingTable({ icon, price, title, text,  offers, action }) {
+import CloseIcon from "../../assets/svg/CloseIcon";
+import style from "../../styles/Elements/PricingTable.module.css";
+export default function PricingTable({
+  icon,
+  price,
+  title,
+  text,
+  offers,
+  action,
+}) {
   let getIcon;
 
   switch (icon) {
@@ -31,29 +39,41 @@ export default function PricingTable({ icon, price, title, text,  offers, action
   }
 
   return (
-    <Wrapper className="whiteBg radius8 shadow">
+    <div className={style.WrapperPricingTable + " whiteBg radius8 shadow"}>
       <div className="flexSpaceCenter">
         {getIcon}
-        <p className="font30 extraBold">{price}</p>
+        <p className="flexSpaceCenter">{price}</p>
       </div>
       <div style={{ margin: "30px 0" }}>
-        <h4 className="font30 extraBold">{title}</h4>
+        <h4 className="tituloPlan">{title}</h4>
         <p className="font13">{text}</p>
       </div>
       <div>
         {offers
           ? offers.map((item, index) => (
-              <div className="flexNullCenter" style={{ margin: "15px 0" }} key={index}>
-                <div style={{ position: "relative", top: "-1px", marginRight: "15px" }}>
+              <div
+                className="flexNullCenter"
+                style={{ margin: "15px 0" }}
+                key={index}
+              >
+                <div
+                  style={{
+                    position: "relative",
+                    top: "-1px",
+                    marginRight: "15px",
+                  }}
+                >
                   {item.cheked ? (
-                    <div style={{ minWidth: "20px" }}>
+                    <div className="checkmark">
                       <CheckMark />
                     </div>
                   ) : (
-                    <div style={{ minWidth: "20px" }}></div>
+                    <div className="checkmark">
+                      <CloseIcon></CloseIcon>
+                    </div>
                   )}
                 </div>
-                <p className="font20 extraBold">{item.name}</p>
+                <p className="plansText">{item.name}</p>
               </div>
             ))
           : null}
@@ -61,13 +81,6 @@ export default function PricingTable({ icon, price, title, text,  offers, action
       <div style={{ maxWidth: "120px", margin: "30px auto 0 auto" }}>
         <FullButton title="Buy" action={action} />
       </div>
-    </Wrapper>
+    </div>
   );
 }
-
-const Wrapper = styled.div`
-  width: 100%;
-  text-align: left;
-  padding: 20px 30px;
-  margin-top: 30px;
-`;

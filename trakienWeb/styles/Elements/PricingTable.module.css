@@ -1,0 +1,9 @@
+.WrapperPricingTable{
+  width: 35vw;
+  text-align: left;
+  padding: 20px 30px;
+  margin-top: 30px;
+  font-size:calc(8px+ 1.5vw);
+  max-height: 10%;
+
+}

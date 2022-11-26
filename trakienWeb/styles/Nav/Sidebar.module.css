@@ -1,0 +1,22 @@
+.wrapperSidebar {
+  width: 400px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  padding: 0 30px;
+}
+.SidebarHeaderSidebar {
+  padding: 20px 0;
+}
+.CloseBtnSidebar {
+  border: 0px;
+  outline: none;
+  background-color: transparent;
+  padding: 10px;
+}
+.UlStyleSidebar {
+  padding: 40px;
+}
+.liSidebar {
+  margin: 20px 0;
+}

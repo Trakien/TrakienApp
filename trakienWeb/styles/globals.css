@@ -79,9 +79,6 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
   vertical-align: baseline;
   box-sizing: border-box;
 }
@@ -97,7 +94,10 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  box-sizing: border-box;
 }
 ol,
 ul {
@@ -119,30 +119,40 @@ table {
   border-spacing: 0;
 }
 a {
+  text-align: center;
   text-decoration: none !important;
-  color: #0b093b;
+  color: #4630aa;
 }
 a:hover {
-  color: #7620ff;
+  color: #f0774a;
 }
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 50px #fff inset; /* Change the color to your own background color */
+  -webkit-box-shadow: 0 0 0 50px ghostwhite inset; /* Change the color to your own background color */
   box-shadow: transparent;
-  -webkit-text-fill-color: #fff;
 }
 body {
-  background: #fff;
-  color: #0b093b;
-  font-family: "Khula", sans-serif;
+  background: ghostwhite;
+  color: #231757;
+  font-family: "Inter", sans-serif;
   overflow-x: hidden;
   font-size: 16px;
   font-weight: 400;
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+*{
+  margin: 0px;
+  padding: 0px;
+}
+html{
+    height: 100%;
+  width: 100%;
 }
 .container {
   width: 100%;
-  max-width: 1220px;
   margin: 0 auto;
-  padding: 0px 30px;
+  padding: 0% 5%;
 }
 @media only screen and (max-width: 859px) {
   .container {
@@ -151,6 +161,42 @@ body {
 }
 .regular {
   font-weight: 400 !important;
+}
+.logoIcon{
+  width: 15vw;
+  height: 15vh;
+
+}
+.LogoPrupose{
+  width: 30vw;
+
+}
+.titulo{
+  font-size: 4vw;
+  font-weight: 600;
+  color: #231757;
+  margin: 0 auto;
+  padding: 0 0 0 0;
+  margin-top: 2%;
+  margin-bottom: 2%;  
+}
+.subtitulo{
+  font-size: 2vw;
+  font-weight: 600;
+  color: #231757;
+  margin: 0 auto;
+  padding: 0 0 0 0;
+  margin-top: 2%;
+  margin-bottom: 2%;  
+}
+.tituloBlanco{
+  font-size: calc(15px + 4vw);
+  font-weight: 600;
+  color: #FFF;
+  margin: 0 auto;
+  padding: 0 0 0 0;
+  margin-top: 2%;
+  margin-bottom: 2%;  
 }
 .semiBold {
   font-weight: 600 !important;
@@ -185,8 +231,8 @@ body {
   width: 100%;
 }
 .active {
-  border-bottom: 2px solid #7620ff;
-  color: #7620ff;
+  border-bottom: 2px solid #4630aa;
+  color: #4630aa;
 }
 .tag {
   padding: 5px 10px;
@@ -201,11 +247,25 @@ body {
 .flex {
   display: flex;
 }
+.flexPlan {
+  margin: 5vw;
+  width: 100%;
+}
 .flexSpaceCenter {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+.plansText{
+  font-size:calc(8px + 0.5vw);
+}
+.checkmark{
+  width: 2vw;
+}
+.tituloPlan{
+  font-size: calc(15px + 1vw);
+}
+
 .flexNullCenter {
   display: flex;
   align-items: center;
@@ -231,7 +291,8 @@ body {
   font-size: 0.75rem;
 }
 .font13 {
-  font-size: 0.813rem;
+  font-size: 1.3vw;
+  text-align: justify;
 }
 .font14 {
   font-size: 0.875rem;
@@ -297,15 +358,18 @@ body {
 .radius8 {
   border-radius: 1rem;
 }
+.imgHome{
+  width: 120%;
+}
 .radius6 {
   border-radius: 0.6rem;
 }
 /* COLORS */
 .darkColor {
-  color: #0b093b;
+  color: #231757;
 }
 .purpleColor {
-  color: #7620ff;
+  color: #4630aa;
 }
 .orangeColor {
   color: #f2b300;
@@ -323,20 +387,23 @@ body {
   color: #707070;
 }
 .whiteColor {
-  color: #fff;
+  color: ghostwhite;
 }
 /* BACKGROUNDS */
 .darkBg {
-  background-color: #0b093b;
+  background-color: #231757;
 }
 .purpleBg {
-  background-color: #7620ff;
+  background-color: #4630aa;
 }
 .orangeBg {
   background-color: #f2b300;
 }
 .lightBg {
-  background-color: #30036690;
+  background-color: #4630aa;
+  color: whitesmoke;
+  width: 100%;
+  height: 100%;
 }
 .coralBg {
   background-color: #c4ffff;
@@ -348,5 +415,29 @@ body {
   background-color: #707070;
 }
 .whiteBg {
-  background-color: #fff;
+  background-color: ghostwhite;
+}
+
+.google-visualization-controls-rangefilter-thumblabel{
+  color:black !important;
+  font-size: 14px !important;
+}
+
+.google-visualization-controls-slider-horizontal{
+  border: none !important;
+  width: 18vw !important;
+  height: 1.2vh !important;   
+}
+
+.google-visualization-controls-slider-handle{
+  background-color: #5745a8 !important;
+}
+
+.google-visualization-controls-slider-thumb{
+  background-color: #4630aa !important;
+  border: 1px solid #342283 !important;   
+}
+
+.google-visualization-controls-rangefilter{
+  text-align: center;
 }

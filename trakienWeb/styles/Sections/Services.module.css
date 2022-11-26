@@ -1,0 +1,19 @@
+.wrapperServices {
+  width: 100%;
+
+}
+.ServiceBoxWrapperServices{
+  width: 20%;
+  margin-right: 5%;
+  padding: 80px 0;
+}
+.AddLeftPrupose{
+width: 50%;
+}
+.pPrupose{
+    max-width: 475px;
+  }
+.AddRightInnerPrupose{
+ width: 100%;
+}
+

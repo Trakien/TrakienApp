@@ -1,0 +1,19 @@
+.img {
+  margin-top: 2%;
+  cursor: pointer;
+  width: 8%;
+  min-width: 69px;
+}
+
+.imgIcon{
+  margin-top: 2%;
+  width: 8%;
+  min-width: 69px;
+}
+
+.imgUser {
+  margin-top: 2%;
+  cursor: pointer;
+  width: 2%;
+  min-width: 60px;
+}

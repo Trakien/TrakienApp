@@ -1,0 +1,21 @@
+.wrapperPrupose {
+  width: 100%;
+  height: 100vh;
+
+}
+.AdvertisingPrupose{
+  padding: 100px 0;
+
+}
+.AddLeftPrupose{
+width: 50%;
+}
+.pPrupose{
+    max-width: 475px;
+    font-size: calc(14px + 0.5vw);
+    
+  }
+.AddRightInnerPrupose{
+ width: 100%;
+}
+

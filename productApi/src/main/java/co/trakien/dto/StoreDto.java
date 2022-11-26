@@ -1,7 +1,6 @@
 package co.trakien.dto;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import co.trakien.entities.Store;
@@ -10,15 +9,17 @@ public class StoreDto {
 
     private String name;
     private String url;
-    private String prices;
+    private List<String> prices;
+    private List<Date> updateDates;
 
     public StoreDto() {
     }
 
-    public StoreDto(String name, String url, String prices) {
+    public StoreDto(String name, String url, List<String> prices, List<Date> updateDates) {
         this.name = name;
         this.url = url;
         this.prices = prices;
+        this.updateDates = updateDates;
     }
 
     public String getName() {
@@ -37,19 +38,28 @@ public class StoreDto {
         this.url = url;
     }
 
-    public String getPrices() {
+    public List<String> getPrices() {
         return prices;
     }
 
-    public void setPrices(String prices) {
+    public void setPrices(List<String> prices) {
         this.prices = prices;
     }
 
     public Store toStore() {
-        String replace = prices.replace("[", "");
-        String replace1 = replace.replace("]", "");
-        List<String> pricesList = new ArrayList<String>(Arrays.asList(replace1.split("")));
-        return new Store(name, url, pricesList);
+        return new Store(name, url, prices, updateDates);
+    }
+
+    public List<Date> getUpdateDates() {
+        return updateDates;
+    }
+
+    public void setUpdateDates(List<Date> updateDates) {
+        this.updateDates = updateDates;
+    }
+
+    public Store toEntity() {
+        return new Store(name, url, prices, updateDates);
     }
 
 }

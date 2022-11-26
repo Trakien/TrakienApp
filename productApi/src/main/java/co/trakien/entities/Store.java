@@ -1,8 +1,7 @@
 package co.trakien.entities;
 
+import java.util.Date;
 import java.util.List;
-
-import com.google.gson.Gson;
 
 import co.trakien.dto.StoreDto;
 
@@ -11,14 +10,16 @@ public class Store {
     private String name;
     private String url;
     private List<String> prices;
+    private List<Date> updateDates;
 
     public Store() {
     }
 
-    public Store(String name, String url, List<String> prices) {
+    public Store(String name, String url, List<String> prices, List<Date> updateDates) {
         this.name = name;
         this.url = url;
         this.prices = prices;
+        this.updateDates = updateDates;
     }
 
     public String getName() {
@@ -45,27 +46,16 @@ public class Store {
         this.prices = prices;
     }
 
-    public void addPrice(String price) {
-        this.prices.add(price);
+    public List<Date> getUpdateDates() {
+        return updateDates;
     }
 
-    public void initPrices(int size) {
-        for (int i = 0; i < size; i++) {
-            this.prices.add(0, "0");
-        }
+    public void setUpdateDates(List<Date> updateDates) {
+        this.updateDates = updateDates;
     }
 
-    @Override
-    public boolean equals(Object store) {
-        return ((Store) store).getName().equals(this.name);
+    public StoreDto toDto() {
+        return new StoreDto(name, url, prices, updateDates);
     }
 
-    public StoreDto toStoreDto() {
-        return new StoreDto(name, url, prices.toString());
-    }
-
-    public String toString() {
-        Gson gson = new Gson();
-        return gson.toJson(this);
-    }
 }
