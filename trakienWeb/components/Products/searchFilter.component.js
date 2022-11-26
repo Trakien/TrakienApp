@@ -22,9 +22,9 @@ export default class multipleFilter extends React.Component {
           id="search-bar"
           className="text"
           onChange={this.handleChange}
-          label="Search by name"
+          label="Buscar por nombre"
           variant="outlined"
-          placeholder="Search..."
+          placeholder="Buscar..."
           value={this.props.search}
         />
       </FormControl>

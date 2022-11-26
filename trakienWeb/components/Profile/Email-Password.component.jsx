@@ -9,7 +9,7 @@ export default function Email_Password_Fields(props) {
         required
         fullWidth
         id="email"
-        label="Email Address"
+        label="Correo electrónico"
         name="email"
         autoComplete="email"
         autoFocus
@@ -19,7 +19,7 @@ export default function Email_Password_Fields(props) {
         required
         fullWidth
         name="password"
-        label="Password"
+        label="Contraseña"
         type="password"
         id="password"
         autoComplete="current-password"

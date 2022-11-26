@@ -1,0 +1,2 @@
+docker cp ./DataBaseModel/data/products.json db:/products.json
+docker exec -it db mongoimport -u "admin" -p "admin" --authenticationDatabase=admin --uri="mongodb://localhost:27017/products" --collection=product --type json --file "./products.json"

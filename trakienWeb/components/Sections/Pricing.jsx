@@ -22,18 +22,18 @@ export default function Pricing() {
             <div className="flexPlan">
               <PricingTable
                 icon="monitor"
-                price="$5.000/mo"
-                title="Plan premium"
-                text="Desbloquea todo el potencial de Trakien."
+                price="Free"
+                title="Plan Gratin"
+                text="Justo lo que necesitas de Trakien."
                 offers={[
-                  { name: "Monitoreo de precios", cheked: true },
-                  { name: "Estadisticas en tiempo real", cheked: true },
-                  { name: "Alertas personalizadas", cheked: true },
+                  { name: "Consultas limitadas diarias", cheked: true },
                   {
-                    name: "Acceso total al catalogo de productos",
+                    name: "Acceso limitado al catálogo de productos",
                     cheked: true,
                   },
                   { name: "Historial de precios", cheked: true },
+                  { name: "Monitoreo de precios", cheked: false },
+                  { name: "Alertas personalizadas", cheked: false },
                 ]}
                 action={() => alert("clicked")}
               />
@@ -41,14 +41,15 @@ export default function Pricing() {
             <div className="flexPlan">
               <PricingTable
                 icon="monitor"
-                price="Free"
-                title="Plan Gratin"
-                text="Justo lo que necesitas de Trakien."
+                price="$5.000/mo"
+                title="Plan premium"
+                text="Desbloquea todo el potencial de Trakien."
                 offers={[
-                  { name: "Estadisticas en tiempo real", cheked: true },
-                  { name: "Consultas limitadas diarias", cheked: true },
+                  { name: "Monitoreo de precios", cheked: true },
+                  { name: "Estadísticas en tiempo real", cheked: true },
+                  { name: "Alertas personalizadas", cheked: true },
                   {
-                    name: "Acceso limitado al catalogo de productos",
+                    name: "Acceso total al catálogo de productos",
                     cheked: true,
                   },
                   { name: "Historial de precios", cheked: true },

@@ -92,7 +92,7 @@ export default function Charts(props) {
 
   return (
     <div>
-      <FullButton title="More Details" action={handleClickOpen} />
+      <FullButton title="Más Detalles" action={handleClickOpen} />
       <Dialog
         open={open}
         onClose={handleClose}

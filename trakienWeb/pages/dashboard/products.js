@@ -145,24 +145,24 @@ export default function Products() {
 
   return (
     <div className="container">
-      <title>Products</title>
+      <title>Productos</title>
       <TopNavbar route="profile" home={false} />
       <main>
         <Box className={styles.content}>
-          <h1 className="title">Products</h1>
+          <h1 className="title">Productos</h1>
           <Box className={styles.filterBox}>
-            <h3>Filters</h3>
+            <h3>Filtros</h3>
             <Box className={styles.filters}>
               <SearchFilter value={searchQuery} setter={setSearchQuery} />
               <MultipleFilter
                 list={categories}
-                name={"Category"}
+                name={"Categoria"}
                 value={categoryFilter}
                 setter={setCategoryFilter}
               />
               <MultipleFilter
                 list={brands}
-                name={"Brand"}
+                name={"Marca"}
                 value={brandFilter}
                 setter={setBrandFilter}
               />

@@ -47,7 +47,7 @@ export default function TopNavbar(props) {
                     smooth={true}
                     offset={-80}
                   >
-                    Home
+                    Inicio
                   </Link>
                 </li>
                 <li className="semiBold font15 pointer">
@@ -59,7 +59,7 @@ export default function TopNavbar(props) {
                     smooth={true}
                     offset={-80}
                   >
-                    Quienes somos
+                    Quiénes somos
                   </Link>
                 </li>
                 <li className="semiBold font15 pointer">
@@ -83,7 +83,7 @@ export default function TopNavbar(props) {
                     smooth={true}
                     offset={-80}
                   >
-                    Proposito
+                    Propósito
                   </Link>
                 </li>
                 <li className="semiBold font15 pointer">
@@ -95,19 +95,19 @@ export default function TopNavbar(props) {
                     smooth={true}
                     offset={-80}
                   >
-                    Premium
+                    Membresías
                   </Link>
                 </li>
               </ul>
               <ul className="flexNullCenter">
                 <li className="semiBold font15 pointer">
                   <a href="/login" style={{ padding: "10px 30px 10px 0" }}>
-                    Log in
+                    Iniciar Sesión
                   </a>
                 </li>
                 <li className="semiBold font15 pointer flexCenter">
                   <FullButton
-                    title="Sign up"
+                    title="Registrarse"
                     action={() => {
                       location.href = "/signup";
                     }}

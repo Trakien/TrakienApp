@@ -9,7 +9,7 @@ export default function Contact() {
       <div className="lightBg" style={{ padding: "60px 0" }}>
         <div className="container">
           <div>
-            <h1 className="font40 extraBold">Quienes somos</h1>
+            <h1 className="font40 extraBold">Quiénes somos</h1>
           </div>
           <div className="flex">
             <div className={style.ServiceBoxWrapperContact}>
@@ -30,7 +30,7 @@ export default function Contact() {
               <ServiceBox
                 icon="objetivo"
                 title="Objetivo"
-                subtitle="Permitir a nuestros clientes ser mas asertivos en la toma de decisiones al momento de comprar/vender a través de internet, teniendo como principal servicio un histórico de precios sobre los productos rastreados, mediante el uso de IA y servicios despegados en la  nube, y servicios secundarios, como sugerencias de lugares de compras, venta de información a empresas vendedoras de productos."
+                subtitle="Permitir a nuestros clientes ser más asertivos en la toma de decisiones al momento de comprar/vender a través de internet, teniendo como principal servicio un histórico de precios sobre los productos rastreados, mediante el uso de IA y servicios despegados en la  nube, y servicios secundarios, como sugerencias de lugares de compras, venta de información a empresas vendedoras de productos."
               />
             </div>
           </div>

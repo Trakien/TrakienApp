@@ -33,6 +33,7 @@ const UserProfilePage = () => {
   //if (customer === undefined) return <>Loading ...</>;
   return (
     <>
+      <title>Perfil</title>
       {customer === undefined ? (
         <>Loading</>
       ) : (
