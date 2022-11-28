@@ -45,7 +45,6 @@ const SignUp = (props) => {
       },
       body: JSON.stringify(jsondata),
     }).then((response) => {
-      console.log(response);
       if (response.status === 200) {
         Router.push("/login");
       } else {

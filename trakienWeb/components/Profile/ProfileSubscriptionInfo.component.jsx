@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Box } from "@material-ui/core";
+import { Grid, Box } from "@mui/material";
 import style from "../../styles/Profile/Profile.module.css";
 
 export default function ProfileSubscriptionInfo(props) {

@@ -11,15 +11,17 @@ public class Store {
     private String url;
     private List<String> prices;
     private List<Date> updateDates;
+    private String img;
 
     public Store() {
     }
 
-    public Store(String name, String url, List<String> prices, List<Date> updateDates) {
+    public Store(String name, String url, List<String> prices, List<Date> updateDates, String img) {
         this.name = name;
         this.url = url;
         this.prices = prices;
         this.updateDates = updateDates;
+        this.img = img;
     }
 
     public String getName() {
@@ -55,7 +57,15 @@ public class Store {
     }
 
     public StoreDto toDto() {
-        return new StoreDto(name, url, prices, updateDates);
+        return new StoreDto(name, url, prices, updateDates, img);
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
 }

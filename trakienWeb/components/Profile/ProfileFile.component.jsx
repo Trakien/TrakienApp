@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid } from "@material-ui/core";
+import { Box, Grid } from "@mui/material";
 import style from "../../styles/Profile/Profile.module.css";
 
 export default function ProfileFile(props) {

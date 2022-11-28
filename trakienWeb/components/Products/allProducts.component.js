@@ -1,7 +1,5 @@
 import React from "react";
 import ProductCard from "./productCard.component";
-import Box from "@mui/material/Box";
-import styles from "../../styles/dashboard/Products.module.css";
 
 export default class AllProducts extends React.Component {
   constructor(props) {
@@ -15,12 +13,13 @@ export default class AllProducts extends React.Component {
     let minUrl = first.url;
     let minName = first.name;
     let updateDate = new Date(first.updateDates[0]);
-
+    let img = first.img;
     data.map((unit) => {
       if (unit.prices[0] < minPrice) {
         minPrice = unit.prices[0];
         minUrl = unit.url;
         minName = unit.name;
+        img = unit.img;
         updateDate = new Date(unit.updateDates[0]);
       }
     });
@@ -30,12 +29,14 @@ export default class AllProducts extends React.Component {
       ? minUrl
       : opt === "date"
       ? updateDate.toLocaleDateString("en-US")
+      : opt === "img"
+      ? img
       : minName;
   }
 
   render() {
     return (
-      <Box className={styles.products}>
+      <>
         {this.props.products
           .slice(
             this.props.page * this.props.items,
@@ -49,11 +50,12 @@ export default class AllProducts extends React.Component {
               prices={this.getMin(product.stores, "price")}
               url={this.getMin(product.stores, "url")}
               minName={this.getMin(product.stores, "name")}
+              img={this.getMin(product.stores, "img")}
               stores={product.stores}
               key={product.id}
             />
           ))}
-      </Box>
+      </>
     );
   }
 }
