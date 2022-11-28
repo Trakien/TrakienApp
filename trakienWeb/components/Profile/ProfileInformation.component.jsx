@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid } from "@material-ui/core";
+import { Box, Grid } from "@mui/material";
 import ProfileFile from "./ProfileFile.component";
 
 import FullButton from "../Buttons/FullButton";

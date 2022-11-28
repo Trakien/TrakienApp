@@ -2,6 +2,7 @@ import threading
 from webbrowser import get
 import requests
 import json
+from lxml import html,etree
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 
@@ -27,6 +28,9 @@ def thread(name, page):
     response = requests.post(url, json=params).json()["results"][0]
     cleaner(response)
 
+def getImg(id,root):
+    return root.xpath("//img[contains(@src,'"+id+"')]/@src")[0]
+
 
 def thread1(url, notFirst, indice, page=""):
     query = f"?page={indice}&pageSize=25&sort=relevance"
@@ -38,7 +42,11 @@ def thread1(url, notFirst, indice, page=""):
         'previousPrice', '"previousPrice"').replace('brand:', '"brand":').replace('category:', '"category":').replace(
         'variant:', '"variant":').replace('list:', '"list":').replace('position:', '"position":').replace(
         'quantity:', '"quantity":').replace("'", '"')
-    res.extend(json.loads(dataLayer))
+    jsonres = json.loads(dataLayer)
+    root = html.fromstring(page)
+    for item in jsonres:
+        item['img']=getImg(item['id'],root)
+    res.extend(jsonres)
 
 
 def cleaner(response):
@@ -74,6 +82,7 @@ def get_list(name):
         threads.append(t)
     [t.start() for t in threads]
     [t.join() for t in threads]
+    
 
 
 class WebScrapingAPI(Resource):
@@ -87,8 +96,6 @@ class WebScrapingAPI(Resource):
         product = int(args['product'])
         global res
         res = list()
-        print(product)
-        print(name)
         get_list(name)
 
         return res
@@ -105,8 +112,6 @@ class WebScraping(Resource):
         product = int(args['product'])
         global res
         res = list()
-        print(product)
-        print(url)
         if (product == 0):
             get_list1(url)
         else:
@@ -119,3 +124,4 @@ api.add_resource(WebScraping, '/api/v2/scraping')
 api.add_resource(WebScrapingAPI, '/api/v2/scrapingAPI')
 if __name__ == '__main__':
     app.run(debug=True)
+
