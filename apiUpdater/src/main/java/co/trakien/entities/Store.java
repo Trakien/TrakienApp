@@ -9,15 +9,25 @@ public class Store {
     private String url;
     private List<String> prices;
     private List<Date> updateDates;
+    private String img;
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 
     public Store() {
     }
 
-    public Store(String name, String url, List<String> prices, List<Date> updateDates) {
+    public Store(String name, String url, List<String> prices, List<Date> updateDates, String img) {
         this.name = name;
         this.url = url;
         this.prices = prices;
         this.updateDates = updateDates;
+        this.img = img;
     }
 
     public String getName() {

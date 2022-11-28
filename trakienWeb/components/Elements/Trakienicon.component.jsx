@@ -11,16 +11,16 @@ const Trakienicon = (props) => {
       {props.home ? (
         <Link className="pointer flexNullCenter" to="home" smooth={true}>
           <LogoIcon />
-          <h1 style={{ marginLeft: "15px" }} className="font20 extraBold">
+          <h1 style={{ marginLeft: "15px" }} className="font20 extraBold ">
             Trakien
           </h1>
         </Link>
       ) : (
-          <img
-            className={style.imgIcon}
-            src="/home/LogoTrakienSimple.png"
-            alt="trakienLogo"
-          ></img>
+        <img
+          className={"desaparece2" + style.imgIcon}
+          src="/home/LogoTrakienSimple.png"
+          alt="trakienLogo"
+        ></img>
       )}
     </>
   );

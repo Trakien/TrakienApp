@@ -83,7 +83,9 @@ public class KKKScraper extends ApiController {
                 url.indexOf(".com") + 4)
                 + "/p/"
                 + object.getString("id"),
-                prices, updateDates);
+                prices, updateDates, url.substring(0,
+                        url.indexOf(".com") + 4)
+                        + object.getString("img"));
         stores.add(store);
         product.setStores(stores);
         return product;

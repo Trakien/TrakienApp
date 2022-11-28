@@ -3,14 +3,14 @@ import styled from "styled-components";
 import { Link } from "react-scroll";
 import Cookies from "universal-cookie";
 import Trakienicon from "../Elements/Trakienicon.component";
-import UserIcon from "../Elements/UserIcon.component"
+import UserIcon from "../Elements/UserIcon.component";
 import style from "../../styles/Nav/TopNavbar.module.css";
 import FullButton from "../Buttons/FullButton";
 import Logout from "../Elements/Logout";
 
 const cookies = new Cookies();
 
-export default function TopNavbar(props) { 
+export default function TopNavbar(props) {
   const token = cookies.get("token");
   const [y, setY] = useState();
   const [sidebarOpen, toggleSidebar] = useState(false);
@@ -38,7 +38,7 @@ export default function TopNavbar(props) {
             <>
               {" "}
               <ul className={style.UlWrapperTopNavbar + " flexNullCenter"}>
-                <li className="semiBold font15 pointer">
+                <li className="semiBold font15 pointer desaparece">
                   <Link
                     activeClass="active"
                     style={{ padding: "10px 15px" }}
@@ -50,7 +50,7 @@ export default function TopNavbar(props) {
                     Inicio
                   </Link>
                 </li>
-                <li className="semiBold font15 pointer">
+                <li className="semiBold font15 pointer desaparece">
                   <Link
                     activeClass="active"
                     style={{ padding: "10px 15px" }}
@@ -62,7 +62,7 @@ export default function TopNavbar(props) {
                     Quiénes somos
                   </Link>
                 </li>
-                <li className="semiBold font15 pointer">
+                <li className="semiBold font15 pointer desaparece">
                   <Link
                     activeClass="active"
                     style={{ padding: "10px 15px" }}
@@ -74,7 +74,7 @@ export default function TopNavbar(props) {
                     Servicios
                   </Link>
                 </li>
-                <li className="semiBold font15 pointer">
+                <li className="semiBold font15 pointer desaparece">
                   <Link
                     activeClass="active"
                     style={{ padding: "10px 15px" }}
@@ -86,7 +86,7 @@ export default function TopNavbar(props) {
                     Propósito
                   </Link>
                 </li>
-                <li className="semiBold font15 pointer">
+                <li className="semiBold font15 pointer desaparece2">
                   <Link
                     activeClass="active"
                     style={{ padding: "10px 15px" }}
@@ -105,7 +105,7 @@ export default function TopNavbar(props) {
                     Iniciar Sesión
                   </a>
                 </li>
-                <li className="semiBold font15 pointer flexCenter">
+                <li className="semiBold font15 pointer flexCenter desaparece2">
                   <FullButton
                     title="Registrarse"
                     action={() => {
@@ -117,8 +117,8 @@ export default function TopNavbar(props) {
             </>
           ) : (
             <>
-              <UserIcon route={props.route}/>
-              <Logout/>
+              <UserIcon route={props.route} />
+              <Logout />
             </>
           )}
         </div>
