@@ -319,7 +319,7 @@ html{
   font-size: 3.75rem;
   line-height: 4.5rem;
 }
-@media only screen and (max-width: 859px) {
+@media only screen and (min-width: 460px) and (max-width: 859px) {
   .font11 {
     font-size: 0.688rem;
   }
@@ -353,6 +353,10 @@ html{
   .font60 {
     font-size: 2.8rem;
   }
+  .desaparece {
+    display: none;
+  }
+  
 }
 /* BORDER RADIUS */
 .radius8 {
@@ -360,6 +364,14 @@ html{
 }
 .imgHome{
   width: 120%;
+}
+@media only screen and (max-width: 459px) {
+  .desaparece2 {
+    display: none;
+  }
+  .desaparece {
+    display: none;
+  }
 }
 .radius6 {
   border-radius: 0.6rem;
