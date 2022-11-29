@@ -141,12 +141,12 @@ body {
   height: 100%;
   width: 100%;
 }
-*{
+* {
   margin: 0px;
   padding: 0px;
 }
-html{
-    height: 100%;
+html {
+  height: 100%;
   width: 100%;
 }
 .container {
@@ -162,41 +162,39 @@ html{
 .regular {
   font-weight: 400 !important;
 }
-.logoIcon{
+.logoIcon {
   width: 15vw;
   height: 15vh;
-
 }
-.LogoPrupose{
+.LogoPrupose {
   width: 30vw;
-
 }
-.titulo{
+.titulo {
   font-size: 4vw;
   font-weight: 600;
   color: #231757;
   margin: 0 auto;
   padding: 0 0 0 0;
   margin-top: 2%;
-  margin-bottom: 2%;  
+  margin-bottom: 2%;
 }
-.subtitulo{
+.subtitulo {
   font-size: 2vw;
   font-weight: 600;
   color: #231757;
   margin: 0 auto;
   padding: 0 0 0 0;
   margin-top: 2%;
-  margin-bottom: 2%;  
+  margin-bottom: 2%;
 }
-.tituloBlanco{
+.tituloBlanco {
   font-size: calc(15px + 4vw);
   font-weight: 600;
-  color: #FFF;
+  color: #fff;
   margin: 0 auto;
   padding: 0 0 0 0;
   margin-top: 2%;
-  margin-bottom: 2%;  
+  margin-bottom: 2%;
 }
 .semiBold {
   font-weight: 600 !important;
@@ -256,13 +254,13 @@ html{
   justify-content: space-between;
   align-items: center;
 }
-.plansText{
-  font-size:calc(8px + 0.5vw);
+.plansText {
+  font-size: calc(8px + 0.5vw);
 }
-.checkmark{
+.checkmark {
   width: 2vw;
 }
-.tituloPlan{
+.tituloPlan {
   font-size: calc(15px + 1vw);
 }
 
@@ -297,9 +295,6 @@ html{
 .font14 {
   font-size: 0.875rem;
 }
-.font15 {
-  font-size: 0.938rem;
-}
 .font18 {
   font-size: 1.125rem;
 }
@@ -319,14 +314,14 @@ html{
   font-size: 3.75rem;
   line-height: 4.5rem;
 }
-@media only screen and (min-width: 860px){
-.imgHome{
-  width: calc(17vh + 15vw);
-}
+@media only screen and (min-width: 860px) {
+  .imgHome {
+    width: calc(17vh + 15vw);
+  }
 }
 
 @media only screen and (min-width: 460px) and (max-width: 859px) {
-  .imgHome{
+  .imgHome {
     width: calc(10vh + 20vw);
   }
   .font11 {
@@ -365,15 +360,16 @@ html{
   .desaparece {
     display: none;
   }
-  
 }
 
 /* BORDER RADIUS */
 .radius8 {
   border-radius: 1rem;
 }
-
-@media only screen and (min-width: 383px) and (max-width: 459px) {
+.imgHome {
+  width: 120%;
+}
+@media only screen and (max-width: 459px) {
   .desaparece2 {
     display: none;
   }
@@ -413,12 +409,12 @@ html{
   .font60 {
     font-size: 2.8rem;
   }
-  .imgHome{
+  .imgHome {
     width: calc(10vh + 20vw);
   }
 }
-@media only screen and (max-width: 382px){
-  .imgHome{
+@media only screen and (max-width: 382px) {
+  .imgHome {
     width: calc(10vh + 5vw);
   }
   .desaparece2 {
@@ -518,26 +514,26 @@ html{
   background-color: ghostwhite;
 }
 
-.google-visualization-controls-rangefilter-thumblabel{
-  color:black !important;
+.google-visualization-controls-rangefilter-thumblabel {
+  color: black !important;
   font-size: 14px !important;
 }
 
-.google-visualization-controls-slider-horizontal{
+.google-visualization-controls-slider-horizontal {
   border: none !important;
   width: 18vw !important;
-  height: 1.2vh !important;   
+  height: 1.2vh !important;
 }
 
-.google-visualization-controls-slider-handle{
+.google-visualization-controls-slider-handle {
   background-color: #5745a8 !important;
 }
 
-.google-visualization-controls-slider-thumb{
+.google-visualization-controls-slider-thumb {
   background-color: #4630aa !important;
-  border: 1px solid #342283 !important;   
+  border: 1px solid #342283 !important;
 }
 
-.google-visualization-controls-rangefilter{
+.google-visualization-controls-rangefilter {
   text-align: center;
 }

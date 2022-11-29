@@ -4,7 +4,7 @@ import style from "../../styles/Elements/icon.module.css";
 function SvgComponent(props) {
   return (
     <img
-      className={style.iconTrakienBlanco}
+      className={style.iconTrakien}
       src="/home/LogoTrakienSimpleBlanco.png"
     />
   );

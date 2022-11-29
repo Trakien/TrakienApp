@@ -21,9 +21,9 @@ export default class TaskCard extends React.Component {
         <Card className={styles.product}>
           <Image alt={this.props.name} src={this.props.img} />
           <CardHeader
-            title={"Nombre: " + this.props.name}
+            title={this.props.name.replace("&quot;", "").replace("Celular", "")}
             subheader={"Marca: " + this.props.brand}
-            titleTypographyProps={{ align: "left" }}
+            titleTypographyProps={{ align: "left", variant: "h6" }}
             subheaderTypographyProps={{
               align: "left",
             }}
@@ -37,11 +37,16 @@ export default class TaskCard extends React.Component {
           <CardContent>
             <Typography
               component="h4"
-              variant="h5"
+              variant="h6"
               align="left"
               color="text.primary"
             >
-              Precio mínimo: {this.props.prices}
+              Precio mínimo:{" "}
+              {new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+                minimumFractionDigits: 0,
+              }).format(this.props.prices)}
             </Typography>
             <a href={this.props.url} target="_blank">
               <Typography component="h5" variant="h6" align="left">

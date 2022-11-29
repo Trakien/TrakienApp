@@ -175,7 +175,7 @@ export default function Products() {
             size="medium"
             className={styles.pagination}
           />
-          <Grid container xs={12} spacing={1}>
+          <Grid container xs={12} spacing={2}>
             <Grid item xs={12} md={3}>
               <Box className={styles.filterBox}>
                 <h3>Filtros</h3>
@@ -187,22 +187,22 @@ export default function Products() {
                         setter={setSearchQuery}
                       />
                     </Grid>
-
-                    <Box sx={{ display: { xs: "block", md: "none" } }}>
-                      <MultipleFilter
-                        list={categories}
-                        name={"Categoria"}
-                        value={categoryFilter}
-                        setter={setCategoryFilter}
-                      />
-                      <MultipleFilter
-                        list={brands}
-                        name={"Marca"}
-                        value={brandFilter}
-                        setter={setBrandFilter}
-                      />
-                    </Box>
-
+                    <Grid item xs={12}>
+                      <Box sx={{ display: { xs: "block", md: "none" } }}>
+                        <MultipleFilter
+                          list={categories}
+                          name={"Categoria"}
+                          value={categoryFilter}
+                          setter={setCategoryFilter}
+                        />
+                        <MultipleFilter
+                          list={brands}
+                          name={"Marca"}
+                          value={brandFilter}
+                          setter={setBrandFilter}
+                        />
+                      </Box>
+                    </Grid>
                     <Box sx={{ display: { xs: "none", md: "block" } }}>
                       <MultipleFilterOpen
                         list={categories}

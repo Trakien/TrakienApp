@@ -2,14 +2,18 @@ import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import Email_Password_Fields from "../components/Profile/Email-Password.component";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import RedirecTag from "../components/Elements/RedirectTag.component";
 import Cookies from "universal-cookie";
 import Router from "next/router";
 import Link from "next/link";
+import "react-notifications/lib/notifications.css";
 import style from "../styles/Elements/login.module.css";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
 
 const cookies = new Cookies();
 
@@ -17,6 +21,11 @@ const theme = createTheme();
 
 const SignIn = (props) => {
   const [token, settoken] = useState("");
+  const createNotification = async (type, title, message, time) => {
+    type === "success"
+      ? NotificationManager.success(message, title, time)
+      : NotificationManager.error(message, title, time);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,26 +40,46 @@ const SignIn = (props) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(jsondata),
-    })
-      .then((response) => response.json())
-      .then((datas) => {
-        settoken(datas.token);
-        cookies.set("token", datas.token, {
-          path: "/",
-          expires: new Date(datas.expirationDate),
-        });
-        cookies.set("email", jsondata.email, {
-          path: "/",
-          expires: new Date(datas.expirationDate),
-        });
-        Router.push("/dashboard/products");
-      });
+    }).then(async (response) => {
+      if (response.status === 200) {
+        var datas = await response.json();
+        if (datas.token) {
+          settoken(datas.token);
+          cookies.set("token", datas.token, {
+            path: "/",
+            expires: new Date(datas.expirationDate),
+          });
+          cookies.set("email", jsondata.email, {
+            path: "/",
+            expires: new Date(datas.expirationDate),
+          });
+          Router.push("/dashboard");
+        } else {
+          createNotification(
+            "error",
+            "Error",
+            "Nombre de usuario o contraseña incorrectos",
+            3000
+          );
+        }
+      } else {
+        createNotification(
+          "error",
+          "Error",
+          "Nombre de usuario o contraseña incorrectos",
+          3000
+        );
+      }
+    });
   };
   return (
     <>
       <title>Iniciar Sesión</title>
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
+          <div>
+            <NotificationContainer />
+          </div>
           <Box
             sx={{
               marginTop: 10,

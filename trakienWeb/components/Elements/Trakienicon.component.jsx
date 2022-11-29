@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import React from "react";
 import { Link } from "react-scroll";
-import Link1 from "next/link";
 import LogoIcon from "../Elements/Logo";
 import style from "../../styles/Elements/nav.module.css";
+import Router from "next/router";
 
 const Trakienicon = (props) => {
+  function redirect() {
+    Router.push("/dashboard");
+  }
   return (
     <>
       {props.home ? (
@@ -16,11 +18,13 @@ const Trakienicon = (props) => {
           </h1>
         </Link>
       ) : (
-        <img
-          className={"desaparece2" + style.imgIcon}
-          src="/home/LogoTrakienSimple.png"
-          alt="trakienLogo"
-        ></img>
+        <a onClick={redirect}>
+          <img
+            className={style.imgIcon}
+            src="/home/LogoTrakienSimple.png"
+            alt="trakienLogo"
+          ></img>
+        </a>
       )}
     </>
   );

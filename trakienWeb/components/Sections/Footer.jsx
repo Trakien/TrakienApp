@@ -29,12 +29,6 @@ export default function Contact() {
                 Trakien
               </h1>
             </Link>
-            <p className="whiteColor font13">
-              © {getCurrentYear()} -{" "}
-              <span className="purpleColor font13">Fanatic</span> All Right
-              Reserved
-            </p>
-
             <Link
               className="whiteColor animate pointer font13"
               to="home"

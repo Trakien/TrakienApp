@@ -70,7 +70,6 @@ public class AuthController {
     @PostMapping
     public TokenDto login(@RequestBody LoginDto loginDto) {
         Optional<Customer> customer = customerService.findByEmail(loginDto.getEmail());
-        System.out.println(customer.get().getPasswordHash());
         if (customer.isPresent() && BCrypt.checkpw(loginDto.getPassword(), customer.get().getPasswordHash())) {
             return generateTokenDto(customer.get());
         } else {

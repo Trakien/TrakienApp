@@ -8,7 +8,7 @@ export default class AllProducts extends React.Component {
   }
 
   getMin(data, opt) {
-    let first = data[0];
+    let first = data[Math.floor(Math.random() * data.length)];
     let minPrice = first.prices[0];
     let minUrl = first.url;
     let minName = first.name;

@@ -4,7 +4,11 @@
   top: 0;
   left: 0;
   z-index: 999;
+  background-color: #f8f8ffc4;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
+
 .NavInnerTopNavbar {
   position: relative;
   height: 100%;
@@ -17,4 +21,3 @@
   position: relative;
   justify-content: flex-end;
 }
-
